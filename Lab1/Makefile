@@ -1,7 +1,7 @@
 NAME ?= ex5
 TEST_IN := 
 CXX ?= g++
-COMPILE_FLAGS = -std=c98 -pedantic -Wall -Wextra -g
+COMPILE_FLAGS = -std=c99 -pedantic -Wall -Wextra -g
 
 .PHONY: all clean
 

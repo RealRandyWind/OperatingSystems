@@ -1,0 +1,648 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"po",
+				"polygon_t"
+			],
+			[
+				"size",
+				"size_t"
+			],
+			[
+				"type",
+				"typedef"
+			],
+			[
+				"TIFF",
+				"TIFF_VALUE_SIZEOF"
+			],
+			[
+				"field",
+				"field"
+			],
+			[
+				"raw",
+				"raw_t"
+			],
+			[
+				"_",
+				"_value"
+			],
+			[
+				"siz",
+				"size_t"
+			],
+			[
+				"Re",
+				"REF"
+			],
+			[
+				"value",
+				"_value"
+			],
+			[
+				"strin",
+				"string"
+			],
+			[
+				"st",
+				"string_t"
+			],
+			[
+				"nul",
+				"nullptr"
+			],
+			[
+				"sti",
+				"string_t"
+			],
+			[
+				"null",
+				"nullsym"
+			],
+			[
+				"str",
+				"string"
+			],
+			[
+				"nulls",
+				"nullstr"
+			],
+			[
+				"s",
+				"string_t"
+			],
+			[
+				"szie",
+				"size_t"
+			],
+			[
+				"string",
+				"string_t"
+			],
+			[
+				"byte",
+				"byte_t"
+			],
+			[
+				"si",
+				"sizeof"
+			],
+			[
+				"tiff",
+				"tiff_value"
+			],
+			[
+				"file",
+				"field"
+			],
+			[
+				"enum",
+				"enum_t"
+			],
+			[
+				"Type",
+				"TypeLhs"
+			],
+			[
+				"TO",
+				"TIFF_ORDER_II"
+			],
+			[
+				"_nex",
+				"_next"
+			],
+			[
+				"Tpe",
+				"TypeLhs"
+			],
+			[
+				"bt",
+				"byte_t"
+			],
+			[
+				"Typ",
+				"TypRhs"
+			],
+			[
+				"int",
+				"integer"
+			],
+			[
+				"by",
+				"bytes"
+			],
+			[
+				"byt",
+				"bytes"
+			],
+			[
+				"boo",
+				"boolean_t"
+			],
+			[
+				"fie",
+				"field"
+			],
+			[
+				"b",
+				"byte_t"
+			],
+			[
+				"fiel",
+				"fields"
+			],
+			[
+				"prin",
+				"printf\tprintf …"
+			],
+			[
+				"hea",
+				"tiff_header"
+			],
+			[
+				"tiff_",
+				"tiff_directory"
+			],
+			[
+				"long",
+				"long_t"
+			],
+			[
+				"os",
+				"ostream"
+			],
+			[
+				"N",
+				"NBytes"
+			],
+			[
+				"typ",
+				"typename"
+			],
+			[
+				"new",
+				"newarray"
+			],
+			[
+				"tif",
+				"tiff_header"
+			],
+			[
+				"uint",
+				"cl_uint16"
+			],
+			[
+				"fi",
+				"field"
+			],
+			[
+				"enu",
+				"enum_t"
+			],
+			[
+				"e",
+				"enum_t"
+			],
+			[
+				"ra",
+				"rawdircount"
+			],
+			[
+				"bit",
+				"bitsoffset"
+			],
+			[
+				"p",
+				"pointer_t"
+			],
+			[
+				"net",
+				"network"
+			],
+			[
+				"netw",
+				"network"
+			],
+			[
+				"image",
+				"image_t"
+			],
+			[
+				"ima",
+				"image_t"
+			],
+			[
+				"parms",
+				"parms_t"
+			],
+			[
+				"layer",
+				"layer_t"
+			],
+			[
+				"lay",
+				"layer_t"
+			],
+			[
+				"ne",
+				"neurons"
+			],
+			[
+				"laye",
+				"layer"
+			],
+			[
+				"neu",
+				"neuron"
+			],
+			[
+				"neuro",
+				"neuron_t"
+			],
+			[
+				"fea",
+				"feature_t"
+			],
+			[
+				"fe",
+				"feature_t"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"ind",
+				"indices_t"
+			],
+			[
+				"samp",
+				"samples_t"
+			],
+			[
+				"bo",
+				"boolean_t"
+			],
+			[
+				"rea",
+				"real_t"
+			],
+			[
+				"vector",
+				"vector_t"
+			],
+			[
+				"mat",
+				"matrix_t"
+			],
+			[
+				"poin",
+				"point"
+			],
+			[
+				"poi",
+				"point"
+			],
+			[
+				"pt",
+				"ptrpoint"
+			],
+			[
+				"point",
+				"point_t"
+			],
+			[
+				"parm",
+				"parms"
+			],
+			[
+				"data",
+				"data_t"
+			],
+			[
+				"boun",
+				"bounds_t"
+			],
+			[
+				"bou",
+				"bounds"
+			],
+			[
+				"pa",
+				"parms_t"
+			],
+			[
+				"r",
+				"return"
+			],
+			[
+				"Ex",
+				"EXIT_FAILURE"
+			],
+			[
+				"lf",
+				"lfir"
+			],
+			[
+				"scan",
+				"scanf"
+			],
+			[
+				"EX",
+				"EXIT_FAILURE"
+			],
+			[
+				"pr",
+				"printf\tprintf …"
+			],
+			[
+				"seq",
+				"seq_t"
+			],
+			[
+				"newS",
+				"newsinusoids"
+			],
+			[
+				"sin",
+				"sinusoid_t"
+			],
+			[
+				"sma",
+				"smalloc"
+			],
+			[
+				"sam",
+				"sample1"
+			],
+			[
+				"parse",
+				"parseNumber"
+			],
+			[
+				"pars",
+				"parseNumber"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "c++",
+		"selected_items":
+		[
+			[
+				"c++",
+				"Set Syntax: C++"
+			]
+		],
+		"width": 662.0
+	},
+	"console":
+	{
+		"height": 143.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Repositories/OperatingSystems"
+	],
+	"file_history":
+	[
+		"/D/Repositories/Algorithms/NeuralNetwork/network.hpp",
+		"/D/Repositories/Algorithms/tiff",
+		"/D/Repositories/Algorithms/serialize.hpp",
+		"/D/Repositories/SimpleCFramework/src/simple_serialize.c",
+		"/D/Repositories/SimpleCFramework/src/simple_serialize.h",
+		"/D/Repositories/Algorithms/DynamicPrototyping/make.bat",
+		"/D/Repositories/Algorithms/NeuralNetwork/make.bat",
+		"/D/Repositories/Algorithms/image",
+		"/D/Repositories/Algorithms/core",
+		"/D/Repositories/Algorithms/InnerOuterBoundExtractor/iobe.cpp",
+		"/D/Repositories/Algorithms/NeuralNetwork/init_cl.ps1",
+		"/D/Repositories/MicronML/apps/MicronMLApp/QtMoc.ps1",
+		"/D/Repositories/Algorithms/NeuralNetwork/test.tif",
+		"/D/Repositories/Algorithms/math.hpp",
+		"/D/Repositories/Algorithms/SampleDistributionOptimizer/sdo.cpp",
+		"/D/Online/Dropbox/Studie/Signals and Systems/Practicals/Lab2/inverses.c",
+		"/D/Repositories/SignalsAndSystems/Lab1/mics.c",
+		"/D/Repositories/SignalsAndSystems/Lab1/car2pol.c",
+		"/D/Repositories/SignalsAndSystems/Lab2/lfir.c",
+		"/D/Repositories/SignalsAndSystems/Lab1/periodic.c",
+		"/D/Repositories/SignalsAndSystems/Lab1/unisoidadd.c",
+		"/D/Repositories/SignalsAndSystems/Lab1/aliases.c",
+		"/D/Repositories/SignalsAndSystems/Lab1/sum2mul.c",
+		"/D/Repositories/SignalsAndSystems/Lab1/make.bat",
+		"/D/Repositories/SignalsAndSystems/Lab1/Makefile",
+		"/D/Repositories/SignalsAndSystems/Lab1/pol2car.c",
+		"/D/Repositories/SignalsAndSystems/Lab1/addoids.c",
+		"/D/Repositories/SignalsAndSystems/Lab1/unisoid.c",
+		"/D/Online/Dropbox/Studie/Signals and Systems/Practicals/Lab1/templateSS.c",
+		"/D/Repositories/SignalsAndSystems/Lab1/sumsin.c",
+		"/D/Repositories/CompilerAndConstructions/Lab2/Ex5/Makefile",
+		"/D/Repositories/CompilerAndConstructions/Lab2/Ex6/Makefile",
+		"/D/Repositories/CompilerAndConstructions/Lab2/Ex5/ex5.fl",
+		"/D/Repositories/CompilerAndConstructions/Lab2/Ex1_2_3_4/Makefile",
+		"/D/Repositories/CompilerAndConstructions/Lab2/automaton.c",
+		"/D/Repositories/CompilerAndConstructions/Lab2/Ex1_2_3_4/automaton.c",
+		"/D/Repositories/CompilerAndConstructions/Lab2/Ex5/ex5.h",
+		"/D/Repositories/CompilerAndConstructions/Lab2/Ex5/ex5.c"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"tiff_e",
+			"value",
+			"n",
+			"result_t",
+			".n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"bounds_t",
+			".N"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 47.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 102.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.hex_viewer_inspector":
+	{
+		"height": 90.0
+	},
+	"pinned_build_system": "",
+	"project": "OperatingSystems.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 293.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

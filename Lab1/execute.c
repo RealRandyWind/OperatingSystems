@@ -1,58 +1,38 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <string.h>
+#include "misc.h"
 
-#define nullptr 0
-#define nullstr ""
-#define nullchr '\0'
-#define true 1
-#define false 0
+#define DELIM_SPACE " \t\n\r\v\f"
 
+int execvpe(const char *path, char * const argv[], char *const envp[]);
 
-inline void* malloc_s(void* d, int sz) { if(!(d=malloc(sz))) { exit(EXIT_FAILURE); } return d; }
+typedef struct args_t { char **d, *_d; } args_t;
 
-inline int isnull(void* d) { return !d; }
-inline int iseol(char chr) { return chr == '\r' || '\n'; }
-inline int iseof(char chr) { return chr == nullchr; }
-inline int isspace(char chr) { return chr == ' ' || chr == '\n' || chr == '\r' || chr == '\t' || chr == '\v'; }
-
-typedef struct args_t
+args_t makeargs(const char *src)
 {
-	int N, _N;
-	char **d;
-} args_t;
-
-args_t raw_args(const char *str)
-{
-	int n, k;
-	char chr;
 	args_t args;
-
-	args._N = 1; args.N = 0;
-	agrs.d = (char *) malloc_s(sizeof(char));
-
-	if(isnull(str)) { return agrs; }
-	
-	for(k = 0; chr = str[k]; ++k)
-	{
-		if(isspace(chr)) { continue; }
-		while(chr)
-		{
-
-		}
-	}
-
+	char* token;
+	args.N = args._N = 0; args.d = nullptr; args._d = nullptr;
+	if(!src || !*src) { return args; }
+	args._d = cp0len2(nullptr, src, &args._N);
+	args.d = pchar(1);
+	args.d[0] 
+	while()
 	return args;
 }
 
-int main(int argc, const char *argv[], const char *envv[])
+int main(int argc, char **argv, char **envp)
 {
-	if(argc <= 0) { return EXIT_SUCCESS; }
-	arg
-	if(execve(args.d[0], &agrs.d[1], envv)) { return EXIT_FAILURE; };
+	args_t args;
 
-	free(agrs.d)
+	if(argc != 2) { return EXIT_FAILURE; }
+	args = makeargs(argv[1]);
+	/* for(int n = 0; n < args.N; ++n) { printf("[%d]  \"%s\"\n", n, args.d[n]); } */
+	execvpe(args.d[0], args.d, envp);
 
-	return EXIT_SUCCESS;
+	free(args._d);
+	free(args.d);
+
+	return EXIT_FAILURE;
 }

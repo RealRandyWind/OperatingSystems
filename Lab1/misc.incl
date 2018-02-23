@@ -1,0 +1,410 @@
+#ifndef MISC_INCL
+#define MISC_INCL
+
+/* memory functions */
+
+inline void free_s(void *d)
+{
+	if(!d) { exit(EXIT_FAILURE); } 
+	free(d);
+};
+
+inline void* malloc_s(int sz)
+{
+	void *d;
+
+	if(!(d = malloc(sz))) { exit(EXIT_FAILURE); }	
+	return d;
+};
+
+inline void* realloc_s(void *d, int sz)
+{ 
+	if(!(d = realloc(d, sz))) { exit(EXIT_FAILURE); }
+	return d;
+};
+
+/* list pointers */
+
+inline uchar* uchar_s(int N)
+{
+	return (uchar *) malloc_s(N * sizeof(uchar));
+};
+
+inline uint* uint_s(int N)
+{
+	return (uint *) malloc_s(N * sizeof(uint));
+};
+
+inline ulong* ulong_s(int N)
+{
+	return (ulong *) malloc_s(N * sizeof(ulong));
+};
+
+inline ullong* ullong_s(int N)
+{
+	return (ullong *) malloc_s(N * sizeof(ullong));
+};
+
+inline llong* llong_s(int N)
+{
+	return (llong *) malloc_s(N * sizeof(llong));
+};
+
+inline char* char_s(int N)
+{
+	return (char *) malloc_s(N * sizeof(char));
+};
+
+inline int* int_s(int N)
+{ 
+	return (int *) malloc_s(N * sizeof(int));
+};
+
+inline long* long_s(int N)
+{ 
+	return (long *) malloc_s(N * sizeof(long));
+};
+
+inline double* double_s(int N)
+{ 
+	return (double *) malloc_s(N * sizeof(double));
+};
+
+inline float* float_s(int N)
+{ 
+	return (float *) malloc_s(N * sizeof(float));
+};
+
+inline ldouble* ldouble_s(int N)
+{
+	return (ldouble *) malloc_s(N * sizeof(ldouble));
+};
+
+inline uchar* uchar2_s(uchar *d, int N)
+{
+	return (uchar *) realloc_s(d, N * sizeof(uchar));
+};
+
+inline uint* uint2_s(uint *d, int N)
+{
+	return (uint *) realloc_s(d, N * sizeof(uint));
+};
+
+inline ulong* ulong2_s(ulong *d, int N)
+{
+	return (ulong *) realloc_s(d, N * sizeof(ulong));
+};
+
+inline ullong* ullong2_s(ullong *d, int N)
+{
+	return (ullong *) realloc_s(d, N * sizeof(ullong));
+};
+
+inline llong* llong2_s(llong *d, int N)
+{
+	return (llong *) realloc_s(d, N * sizeof(llong));
+};
+
+inline char* char2_s(char *d, int N)
+{
+	return (char *) realloc_s(d, N * sizeof(char));
+};
+
+inline int* int2_s(int *d, int N)
+{ 
+	return (int *) realloc_s(d, N * sizeof(int));
+};
+
+inline long* long2_s(long *d, int N)
+{ 
+	return (long *) realloc_s(d, N * sizeof(long));
+};
+
+inline double* double2_s(double *d, int N)
+{ 
+	return (double *) realloc_s(d, N * sizeof(double));
+};
+
+inline float* float2_s(float *d, int N)
+{ 
+	return (float *) realloc_s(d, N * sizeof(float));
+};
+
+inline ldouble* ldouble2_s(ldouble *d, int N)
+{
+	return (ldouble *) realloc_s(d, N * sizeof(ldouble));
+};
+
+/* list list pointers */
+
+inline uchar** puchar_s(int N)
+{
+	return (uchar **) malloc_s(N * sizeof(uchar *));
+};
+
+inline uint** puint_s(int N)
+{
+	return (uint **) malloc_s(N * sizeof(uint *));
+};
+
+inline ulong** pulong_s(int N)
+{
+	return (ulong **) malloc_s(N * sizeof(ulong *));
+};
+
+inline ullong** pullong_s(int N)
+{
+	return (ullong **) malloc_s(N * sizeof(ullong *));
+};
+
+inline llong** pllong_s(int N)
+{
+	return (llong **) malloc_s(N * sizeof(llong *));
+};
+
+inline char** pchar_s(int N)
+{
+	return (char **) malloc_s(N * sizeof(char *));
+};
+
+inline int** pint_s(int N)
+{ 
+	return (int **) malloc_s(N * sizeof(int *));
+};
+
+inline long** plong_s(int N)
+{ 
+	return (long **) malloc_s(N * sizeof(long *));
+};
+
+inline double** pdouble_s(int N)
+{ 
+	return (double **) malloc_s(N * sizeof(double *));
+};
+
+inline float** pfloat_s(int N)
+{ 
+	return (float **) malloc_s(N * sizeof(float *));
+};
+
+inline ldouble** pldouble_s(int N)
+{
+	return (ldouble **) malloc_s(N * sizeof(ldouble *));
+};
+
+inline uchar** puchar2_s(uchar **d, int N)
+{
+	return (uchar **) realloc_s(d, N * sizeof(uchar *));
+};
+
+inline uint** puint2_s(uint **d, int N)
+{
+	return (uint **) realloc_s(d, N * sizeof(uint *));
+};
+
+inline ulong** pulong2_s(ulong **d, int N)
+{
+	return (ulong **) realloc_s(d, N * sizeof(ulong *));
+};
+
+inline ullong** pullong2_s(ullong **d, int N)
+{
+	return (ullong **) realloc_s(d, N * sizeof(ullong *));
+};
+
+inline llong** pllong2_s(llong **d, int N)
+{
+	return (llong **) realloc_s(d, N * sizeof(llong *));
+};
+
+inline char** pchar2_s(char **d, int N)
+{
+	return (char **) realloc_s(d, N * sizeof(char *));
+};
+
+inline int** pint2_s(int **d, int N)
+{ 
+	return (int **) realloc_s(d, N * sizeof(int *));
+};
+
+inline long** plong2_s(long **d, int N)
+{ 
+	return (long **) realloc_s(d, N * sizeof(long *));
+};
+
+inline double** pdouble2_s(double **d, int N)
+{ 
+	return (double **) realloc_s(d, N * sizeof(double *));
+};
+
+inline float** pfloat2_s(float **d, int N)
+{ 
+	return (float **) realloc_s(d, N * sizeof(float *));
+};
+
+inline ldouble** pldouble2_s(ldouble **d, int N)
+{
+	return (ldouble **) realloc_s(d, N * sizeof(ldouble *));
+};
+
+/* manimpulator functions */
+
+inline void* set(void *d, char v, int sz)
+{
+	char *_d;
+
+	if(!d) { exit(EXIT_FAILURE); }
+	_d = d;
+	while(--sz >= 1) { _d[sz] = v; }
+	return _d;
+};
+
+inline void* unset(void *d, int sz)
+{
+	return set(d, nullptr, sz);
+};
+
+inline void* rm(void *d)
+{
+	free_s(d);
+	return nullptr;
+};
+
+inline void* mk(int sz)
+{
+	return malloc_s(sz * sizeof(char));
+};
+
+inline void* rs(void *d, int sz)
+{
+	return realloc_s(d, sz * sizeof(char));
+};
+
+inline void* cp(void *lhs, const void *rhs, int sz)
+{
+	char *_lhs;
+	const char *_rhs;
+
+	if(!lhs || !rhs) { exit(EXIT_FAILURE); }
+	_lhs = lhs; _rhs = rhs;
+	while(--sz >= 1) { _lhs[sz] = _rhs[sz]; }	
+	return _lhs; 
+};
+
+inline void* mv(void *lhs, void **prhs, int sz)
+{
+	char *_lhs, *_rhs;
+
+	if(!lhs || !prhs || !*prhs ) { exit(EXIT_FAILURE); }
+	 _lhs = lhs; _rhs = *prhs;
+	while(--sz >= 1) { _lhs[sz] = _rhs[sz]; _rhs[sz] = nullptr; }
+	*prhs = _rhs;	
+	return _lhs;
+};
+
+inline int len(const void *d)
+{
+	int sz;
+	const char *_d;
+
+	if(!d) { exit(EXIT_FAILURE); }
+	_d = d;
+	for(sz = 0; _d[sz]; ++sz) { /* do nothing */ }
+	return sz - 1;
+};
+
+inline void* set0(void *d, char v)
+{
+	int sz;
+	char *_d;
+
+	if(!d) { exit(EXIT_FAILURE); }
+	_d = d;
+	for(sz = 0; _d[sz]; --sz) { _d[sz] = v; }
+	return _d;
+};
+
+inline void* unset0(void *d)
+{
+	return set0(d, nullptr);
+};
+
+inline void* mk0(int sz)
+{
+	char *d;
+
+	d = malloc_s((sz + 1) * sizeof(char));
+	d[sz] = nullchr;
+	return d;
+};
+
+inline void* rs0(void *d, int sz)
+{
+	char *_d;
+
+	_d = realloc_s(d, (sz + 1) * sizeof(char));
+	_d[sz] = nullchr;
+	return _d;
+};
+
+inline void* cp0(void *lhs, const void *rhs)
+{
+	int sz;
+	char *_lhs;
+	const char *_rhs;
+
+	if(!lhs || !rhs) { exit(EXIT_FAILURE); }
+	_lhs = lhs; _rhs = rhs;
+	for(sz = 0; _lhs[sz] && (_lhs[sz] = _rhs[sz]); ++sz) { /* do nothing */ }	
+	return _lhs;
+};
+
+inline void* mv0(void *lhs, void **prhs)
+{
+	int sz;
+	char *_lhs, *_rhs;
+
+	if(!lhs || !prhs || !*prhs ) { exit(EXIT_FAILURE); }
+	 _lhs = lhs; _rhs = *prhs;
+	for(sz = 0; _lhs[sz] && (_lhs[sz] = _rhs[sz]); ++sz) { _rhs[sz] = nullptr; }
+	*prhs = _rhs;
+	return _lhs;
+};
+
+inline void* cp0len2(void *lhs, const void *rhs, int *pN)
+{
+	int sz, _N;
+	char *_lhs;
+	const char *_rhs;
+
+	if(!rhs) { exit(EXIT_FAILURE); }
+	_N = len(rhs) + 1; _lhs = rs(lhs, _N); _rhs = rhs;
+	for(sz = 0; sz < _N; ++sz) { _lhs[sz] = _rhs[sz]; }
+	if(pN) { *pN = _N; }	
+	return _lhs;
+}
+
+inline void* mv0len2(void *lhs, void **prhs, int *pN)
+{
+	int sz, _N;
+	char *_lhs, *_rhs;
+
+	if(!prhs || !*prhs ) { exit(EXIT_FAILURE); }
+	_rhs = *prhs; _N = len(_rhs) + 1; _lhs = rs(lhs, _N);
+	for(sz = 0; sz < _N; ++sz) { _lhs[sz] = _rhs[sz]; _rhs[sz] = nullptr; }
+	if(pN) { *pN = _N; }
+	*prhs = _rhs;
+	return _lhs;
+}
+
+inline void* cp0len(void *lhs, const void *rhs)
+{
+	cp0len2(lhs, rhs, nullptr);
+};
+
+inline void* mv0len(void *lhs, void **prhs)
+{
+	mv0len2(lhs, prhs, nullptr);
+};
+
+#endif
