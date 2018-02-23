@@ -28,6 +28,7 @@ args_t makeargs(const char *src)
 		if(N >= _N) { args.d = pchar2_s(args.d, _N >>= 1); }
 		args.d[N] = strtok(nullptr, DELIM_SPACE);
 	}
+	
 	return args;
 }
 
