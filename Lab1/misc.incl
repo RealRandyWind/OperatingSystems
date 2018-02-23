@@ -5,7 +5,6 @@
 
 inline void free_s(void *d)
 {
-	if(!d) { exit(EXIT_FAILURE); } 
 	free(d);
 };
 
@@ -23,7 +22,7 @@ inline void* realloc_s(void *d, int sz)
 	return d;
 };
 
-/* list pointers */
+/* functions Type* <typename>_s(int N) */
 
 inline uchar* uchar_s(int N)
 {
@@ -80,6 +79,8 @@ inline ldouble* ldouble_s(int N)
 	return (ldouble *) malloc_s(N * sizeof(ldouble));
 };
 
+/* functions Type* <typename>2_s(Type* d, int N) */
+
 inline uchar* uchar2_s(uchar *d, int N)
 {
 	return (uchar *) realloc_s(d, N * sizeof(uchar));
@@ -135,7 +136,7 @@ inline ldouble* ldouble2_s(ldouble *d, int N)
 	return (ldouble *) realloc_s(d, N * sizeof(ldouble));
 };
 
-/* list list pointers */
+/* functions Type** p<typename>_s(int N) */
 
 inline uchar** puchar_s(int N)
 {
@@ -192,6 +193,8 @@ inline ldouble** pldouble_s(int N)
 	return (ldouble **) malloc_s(N * sizeof(ldouble *));
 };
 
+/* functions Type** p<typename>2_s(Type** d, int N) */
+
 inline uchar** puchar2_s(uchar **d, int N)
 {
 	return (uchar **) realloc_s(d, N * sizeof(uchar *));
@@ -247,7 +250,7 @@ inline ldouble** pldouble2_s(ldouble **d, int N)
 	return (ldouble **) realloc_s(d, N * sizeof(ldouble *));
 };
 
-/* manimpulator functions */
+/* memory manipulation funcions given size */
 
 inline void* set(void *d, char v, int sz)
 {
@@ -313,6 +316,8 @@ inline int len(const void *d)
 	return sz - 1;
 };
 
+/* memory manipulation funcions given null termination */
+
 inline void* set0(void *d, char v)
 {
 	int sz;
@@ -371,6 +376,8 @@ inline void* mv0(void *lhs, void **prhs)
 	return _lhs;
 };
 
+/* memory manipulation funcions given null termination and rhs ensure size */
+
 inline void* cp0len2(void *lhs, const void *rhs, int *pN)
 {
 	int sz, _N;
@@ -396,6 +403,8 @@ inline void* mv0len2(void *lhs, void **prhs, int *pN)
 	*prhs = _rhs;
 	return _lhs;
 }
+
+/* memory manipulation funcions given null termination and rhs ensure size and size return */
 
 inline void* cp0len(void *lhs, const void *rhs)
 {
