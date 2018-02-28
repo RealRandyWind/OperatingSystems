@@ -1,4 +1,4 @@
-NAME ?= ex5
+NAME ?= duplicates
 TEST_IN := 
 CXX ?= g++
 COMPILE_FLAGS = -std=c99 -pedantic -Wall -Wextra -g

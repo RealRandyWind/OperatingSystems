@@ -1,10 +1,11 @@
 #ifndef MISC_INCL
 #define MISC_INCL
 
-/* memory functions */
+/* base safe functions */
 
 inline void free_s(void *d)
 {
+	if(!d) { exit(EXIT_FAILURE); }
 	free(d);
 };
 
@@ -20,6 +21,30 @@ inline void* realloc_s(void *d, int sz)
 { 
 	if(!(d = realloc(d, sz))) { exit(EXIT_FAILURE); }
 	return d;
+};
+
+inline int fork_s()
+{
+	int ret;
+
+	if((ret = fork()) < 0) { exit(EXIT_FAILURE); }
+	return ret;
+};
+
+inline int pipe_s(int fd[2])
+{
+	int ret;
+
+	if((ret = pipe(fd)) < 0) { exit(EXIT_FAILURE); }
+	return ret;
+};
+
+inline int stat_s(const char *path, struct stat *pstat)
+{
+	int ret;
+
+	if((ret = stat(path, pstat)) < 0) { exit(EXIT_FAILURE); }
+	return ret;
 };
 
 /* functions Type* <typename>_s(int N) */
@@ -258,7 +283,7 @@ inline void* set(void *d, char v, int sz)
 
 	if(!d) { exit(EXIT_FAILURE); }
 	_d = d;
-	while(--sz >= 1) { _d[sz] = v; }
+	while(--sz >= 0) { _d[sz] = v; }
 	return _d;
 };
 
@@ -290,8 +315,8 @@ inline void* cp(void *lhs, const void *rhs, int sz)
 
 	if(!lhs || !rhs) { exit(EXIT_FAILURE); }
 	_lhs = lhs; _rhs = rhs;
-	while(--sz >= 1) { _lhs[sz] = _rhs[sz]; }	
-	return _lhs; 
+	while(--sz >= 0) { _lhs[sz] = _rhs[sz]; }	
+	return _lhs;
 };
 
 inline void* mv(void *lhs, void **prhs, int sz)
@@ -300,9 +325,43 @@ inline void* mv(void *lhs, void **prhs, int sz)
 
 	if(!lhs || !prhs || !*prhs ) { exit(EXIT_FAILURE); }
 	 _lhs = lhs; _rhs = *prhs;
-	while(--sz >= 1) { _lhs[sz] = _rhs[sz]; _rhs[sz] = nullptr; }
+	while(--sz >= 0) { _lhs[sz] = _rhs[sz]; _rhs[sz] = nullptr; }
 	*prhs = _rhs;	
 	return _lhs;
+};
+
+inline void* cat(void *lhs, const void *rhs, int szl, int szr)
+{
+	char *_lhs;
+
+	if(!lhs || !rhs) { exit(EXIT_FAILURE); }
+	_lhs = mk(szl + szr);
+	cp(_lhs, lhs, szl);
+	cp(_lhs + szl, rhs, szr);
+	return _lhs;
+};
+
+inline void* catd(void *lhs, const void *rhs, const void *dilm, int szl, int szr, int szd)
+{
+	char *_lhs;
+
+	if(!lhs || !rhs || !dilm) { exit(EXIT_FAILURE); }
+	_lhs = mk(szl + szr + szd);
+	cp(_lhs, lhs, szl);
+	cp(_lhs + szl, dilm, szd);
+	cp(_lhs + szl + szd, rhs, szr);
+	return _lhs;
+};
+
+inline int eq(const void *lhs, const void *rhs, int sz)
+{
+	int ret;
+	const char *_lhs, *_rhs;
+
+	if(!lhs || !rhs) { exit(EXIT_FAILURE); }
+	_lhs = lhs; _rhs = rhs; ret = true;
+	while(--sz >= 0 && (ret = (_lhs[sz] == _rhs[sz]))) { /* do nothing */ }
+	return ret;
 };
 
 inline int len(const void *d)
@@ -313,7 +372,17 @@ inline int len(const void *d)
 	if(!d) { exit(EXIT_FAILURE); }
 	_d = d;
 	for(sz = 0; _d[sz]; ++sz) { /* do nothing */ }
-	return sz - 1;
+	return sz;
+};
+
+inline ullong checksum(const void *d, off_t sz)
+{
+	ullong ret;
+	const char *_d;
+
+	_d = d; ret = 0;
+	while(--sz >= 0) { ret += (ullong) _d[sz]; }
+	return ret;
 };
 
 /* memory manipulation funcions given null termination */
@@ -376,6 +445,34 @@ inline void* mv0(void *lhs, void **prhs)
 	return _lhs;
 };
 
+inline int eq0(const void *lhs, const void *rhs)
+{
+	return eq02(lhs, rhs, nullptr);
+};
+
+inline int eq02(const void *lhs, const void *rhs, int *pN)
+{
+	int ret, sz;
+	const char *_lhs, *_rhs;
+
+	if(!lhs || !rhs) { exit(EXIT_FAILURE); }
+	_lhs = lhs; _rhs = rhs; ret = true;
+	for(sz = 0; _lhs[sz] && _rhs[sz] && (ret = (_lhs[sz] == _rhs[sz])); ++sz) { /* do nothing */ }
+	if(pN) { *pN = sz + 1; }
+	return ret;
+};
+
+inline ullong checksum0(const void *d)
+{
+	ullong ret;
+	off_t sz;
+	const char *_d;
+
+	_d = d; ret = 0;
+	for(sz = 0; _d[sz]; ++sz) { ret += (ullong) _d[sz]; }
+	return ret;
+};
+
 /* memory manipulation funcions given null termination and rhs ensure size */
 
 inline void* cp0len2(void *lhs, const void *rhs, int *pN)
@@ -389,7 +486,7 @@ inline void* cp0len2(void *lhs, const void *rhs, int *pN)
 	for(sz = 0; sz < _N; ++sz) { _lhs[sz] = _rhs[sz]; }
 	if(pN) { *pN = _N; }	
 	return _lhs;
-}
+};
 
 inline void* mv0len2(void *lhs, void **prhs, int *pN)
 {
@@ -402,18 +499,48 @@ inline void* mv0len2(void *lhs, void **prhs, int *pN)
 	if(pN) { *pN = _N; }
 	*prhs = _rhs;
 	return _lhs;
-}
+};
+
+inline void* cat0len2(void *lhs, const void *rhs, int *pN)
+{
+	int _Nl, _Nr;
+
+	if(!lhs || !rhs) { exit(EXIT_FAILURE); }
+	_Nl = len(lhs); _Nr = len(rhs);
+	if(pN) { *pN = _Nl + _Nr + 1; }
+	return cat(lhs, rhs, _Nl, _Nr);
+};
+
+inline void* catd0len2(void *lhs, const void *rhs, const void *dilm, int *pN)
+{
+	int _Nl, _Nr, _Nd;
+
+	if(!lhs || !rhs || !dilm) { exit(EXIT_FAILURE); }
+	_Nl = len(lhs); _Nr = len(rhs); _Nd = len(dilm);
+	if(pN) { *pN = _Nl + _Nd + _Nr + 1; }
+	return catd(lhs, rhs, dilm, _Nl, _Nr + 1, _Nd);
+};
 
 /* memory manipulation funcions given null termination and rhs ensure size and size return */
 
 inline void* cp0len(void *lhs, const void *rhs)
 {
-	cp0len2(lhs, rhs, nullptr);
+	return cp0len2(lhs, rhs, nullptr);
 };
 
 inline void* mv0len(void *lhs, void **prhs)
 {
-	mv0len2(lhs, prhs, nullptr);
+	return mv0len2(lhs, prhs, nullptr);
+};
+
+inline void* cat0len(void *lhs, const void *rhs)
+{
+	return cat0len2(lhs, rhs, nullptr);
+};
+
+inline void* catd0len(void *lhs, const void *rhs, const void *dilm)
+{
+	return catd0len2(lhs, rhs, dilm, nullptr);
 };
 
 #endif

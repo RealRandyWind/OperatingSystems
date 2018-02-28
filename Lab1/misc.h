@@ -1,9 +1,19 @@
 #ifndef MISC_H
 #define MISC_H
 
+#include <unistd.h>
+#include <sys/stat.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+#define SBOOL(a) ((a) ? "true" : "false")
+
+#define max(a, b) ((a) > (b) ? (a) : (b))
+#define min(a, b) ((a) < (b) ? (a) : (b))
+
+#define nothing -1
+#define undefined -1
+#define null 0
 #define nullptr 0
 #define nullstr ""
 #define nullchr '\0'
@@ -18,12 +28,16 @@ typedef long long llong;
 typedef long double ldouble;
 
 /*
- * wrapper functions for alternative handling
- * if needed.
+ * Type <functionname>_s(...)
+ * safe wrapper functions for alternative handling error exit
  */
 void free_s(void *d);
 void* malloc_s(int sz);
 void* realloc_s(void *d, int sz);
+
+int fork_s();
+int pipe_s(int fd[2]);
+int stat_s(const char *path, struct stat *pstat);
 
 /*
  * Type* <typename>_s(int N)
@@ -101,7 +115,9 @@ ldouble** pldouble2_s(ldouble **d, int N);
  * rs : resizes a pointer to new byte size
  * cp : copies bytes size into other pointer
  * mv : moves bytes size into other pointer
+ * eq : compares bytes size of pointers
  * len : computes size of null termiated bytes pointer
+ * checksum : bytes data given size
  */
 void* set(void *d, char v, int sz);
 void* unset(void *d, int sz);
@@ -110,7 +126,11 @@ void* mk(int sz);
 void* rs(void *d, int sz);
 void* cp(void *lhs, const void *rhs, int sz);
 void* mv(void *lhs, void **prhs, int sz);
+void* cat(void *lhs, const void *rhs, int szl, int szr);
+void* catd(void *lhs, const void *rhs, const void *dilm, int szl, int szr, int szd);
+int eq(const void* lhs, const void *rhs, int sz);
 int len(const void *d);
+ullong checksum(const void *d, off_t sz);
 
 /*
  * memory manipulation funcions given null terminated bytes 
@@ -125,6 +145,9 @@ void* mk0(int sz);
 void* rs0(void *d, int sz);
 void* cp0(void *lhs, const void *rhs);
 void* mv0(void *lhs, void **prhs);
+int eq0(const void* lhs, const void *rhs);
+int eq02(const void* lhs, const void *rhs, int *pN);
+ullong checksum0(const void *d);
 
 /*
  * memory manipulation funcions given null terminated bytes 
@@ -136,6 +159,8 @@ void* mv0(void *lhs, void **prhs);
  */
 void* cp0len(void *lhs, const void *rhs);
 void* mv0len(void *lhs, void **prhs);
+void* cat0len(void *lhs, const void *rhs);
+void* catd0len(void *lhs, const void *rhs, const void *dilm);
 
 /*
  * same as previous but allows you to request the byte size
@@ -143,6 +168,8 @@ void* mv0len(void *lhs, void **prhs);
  */
 void* cp0len2(void *lhs, const void *rhs, int *pN);
 void* mv0len2(void *lhs, void **prhs, int *pN);
+void* cat0len2(void *lhs, const void *rhs, int *pN);
+void* catd0len2(void *lhs, const void *rhs, const void *dilm, int *pN);
 
 /* implementation of the functions */
 #include "misc.incl"
