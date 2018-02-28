@@ -112,6 +112,8 @@ int nextf(iter_t *pit, file_t *pfile)
 			 * resolve link untill not link anymore
 			 * continue if reaches nowhere or circualrity 
 			 * flag circulary links in some way
+			 *
+			 * Not implemented because assumed not needed for assignment
 			 */
 		}
 
@@ -124,7 +126,7 @@ int nextf(iter_t *pit, file_t *pfile)
 			/* itk = {pk,dk,itn}, it2k = {pk2,-,-} */
 			it2._next = it._next;
 			/* itk = {pk,dk,itn}, it2k = {pk2,-,itn} */
-			it._next = (iter_t *) malloc(sizeof(iter_t));
+			it._next = (iter_t *) malloc_s(sizeof(iter_t));
 			*it._next = it2;
 			/* itk = {pk,dk,it2k}, it2k = {pk2,d2k,itn} */
 			continue;
@@ -199,8 +201,6 @@ int install(file_t file, map_t *pmap)
 	return NOFINDS;
 }
 
-/*S_ISLNK, S_ISREG, S_ISDIR, S_IFLNK*/
-/* open(.., O_RDONLY)*/
 int main(int argc, char **argv, char **envp)
 {
 	int n;
@@ -210,11 +210,14 @@ int main(int argc, char **argv, char **envp)
 
 	if(argc != 1) { return EXIT_FAILURE; }
 	
+	/* init map and iterator */
 	it = rawit(DUPLICATE_ROOT);
 	map = rawmap(INIT_MAP_SIZE);
 
+	/* loop all files foud by iterator */
 	while(nextf(&it, &file))
 	{
+		/* try and install the file when found or print duplicate and free file */
 		n = install(file, &map);
 		if(n >= 0) { printf(DUPLICATE_MSG_SS, map.d[n].path, file.path); freefile(file); } 
 	}

@@ -8,6 +8,13 @@
 
 int execvpe(const char *path, char * const argv[], char *const envp[]);
 
+/*
+ * splits a string into parts based on the defined delimiters
+ * subsitituts the delimiters by an nullchr. returns a ponter 
+ * to the string containing the data as reference _src (needs
+ * to be freed) and returns the a list of pointers to the parts
+ * in the _src array.
+ */
 char** split(const char *src, char **_src)
 {
 	char **d, *_d;

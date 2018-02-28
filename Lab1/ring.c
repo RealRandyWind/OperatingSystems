@@ -42,23 +42,36 @@ int main(int argc, char **argv)
 
 	if(argc != 2) { exit(EXIT_FAILURE); }
 
+	/* check pre conditions and initialize variable */
 	N = atoi(argv[1]); K = 0; sz = sizeof(int);
 	if(N < 2 || N > 16) { exit(EXIT_FAILURE); }
 	
+	/* open a pipe and assign pid write first value to pipe buff */
 	pipe_s(fdn); pidn = getpid();
-
 	write(fdn[1], &K, sz);
 	printf(RING_MSG_DD, pidn, K);
+	
+	/* create a circular pipe line */
 	cpipe(N, &PARENT, &pidn, fdn);
-
 	while(true)
 	{
+		/*
+		 * the reading is blocking so order will be maintaind
+		 * in order of incounter.
+		 *
+		 * observed some order problems with N=2 may meaning that
+		 * they share the same pipe buff, the idea was to introduce
+		 * a pipe for each proccess to write and block reads
+		 * from its neighbour.
+		 */
 		read(fdn[0], &K, sz);
 		++K;
 		write(fdn[1], &K, sz);
+		/* teminate the loop if K limit is reached */
 		if(K > RING_LIMIT_K) { break; };
 		printf(RING_MSG_DD, pidn, K);
 	}
+	/* cleanup and close discriptors and wait for all processes to finish */
 	close(fdn[0]); close(fdn[1]);
 	wait(null);
 
