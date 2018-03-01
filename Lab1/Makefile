@@ -11,4 +11,4 @@ main-build:
 	$(CXX) -o $(NAME) $(NAME).c $(COMPILE_FLAGS)
 
 clean:
-	rm -f ./$(NAME).c ./$(NAME)
+	rm -f ./$(NAME)

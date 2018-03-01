@@ -25,7 +25,7 @@ void cpipe(int N, int *PARENT, int *pidn, int fdn[2])
 	for (n = 1; n < N; ++n)
 	{	
 		/* rn = rk, fdn = {bk,(rk,wk)} */
-		pipe_s(fdn); fork_s();
+		pipe_s(fdn); PARENT = fork_s();
 		/* rn = rk, fdn = {bn,(rn,wn)} */
 		rk = rn; rn = fdn[0]; fdn[0] = rk;
 		/* rn = rn, fdn = {bn,(rk,wn)} */

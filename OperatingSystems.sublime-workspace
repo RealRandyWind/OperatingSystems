@@ -4,6 +4,98 @@
 		"selected_items":
 		[
 			[
+				"re",
+				"realloc"
+			],
+			[
+				"prin",
+				"printf\tprintf …"
+			],
+			[
+				"prn",
+				"printfile"
+			],
+			[
+				"open",
+				"open"
+			],
+			[
+				"file",
+				"file"
+			],
+			[
+				"fil",
+				"files"
+			],
+			[
+				"_",
+				"_next"
+			],
+			[
+				"p",
+				"pdir"
+			],
+			[
+				"free",
+				"free_s"
+			],
+			[
+				"n",
+				"name"
+			],
+			[
+				"pd",
+				"pdent"
+			],
+			[
+				"Ex",
+				"EXIT_FAILURE"
+			],
+			[
+				"null",
+				"nullptr"
+			],
+			[
+				"reall",
+				"realloc_s"
+			],
+			[
+				"it",
+				"iter_t"
+			],
+			[
+				"DT_IS",
+				"DT_ISDIR"
+			],
+			[
+				"exi",
+				"exit"
+			],
+			[
+				"ope",
+				"opendir"
+			],
+			[
+				"pdir",
+				"pdirent"
+			],
+			[
+				"u",
+				"ullong"
+			],
+			[
+				"ent",
+				"enty_t"
+			],
+			[
+				"ma",
+				"map_t"
+			],
+			[
+				"Rin",
+				"RING_LIMIT_K"
+			],
+			[
 				"EXI",
 				"EXIT_FAILURE"
 			],
@@ -52,10 +144,6 @@
 				"raw_t"
 			],
 			[
-				"_",
-				"_value"
-			],
-			[
 				"siz",
 				"size_t"
 			],
@@ -82,10 +170,6 @@
 			[
 				"sti",
 				"string_t"
-			],
-			[
-				"null",
-				"nullsym"
 			],
 			[
 				"str",
@@ -118,10 +202,6 @@
 			[
 				"tiff",
 				"tiff_value"
-			],
-			[
-				"file",
-				"field"
 			],
 			[
 				"enum",
@@ -180,10 +260,6 @@
 				"fields"
 			],
 			[
-				"prin",
-				"printf\tprintf …"
-			],
-			[
 				"hea",
 				"tiff_header"
 			],
@@ -240,10 +316,6 @@
 				"bitsoffset"
 			],
 			[
-				"p",
-				"pointer_t"
-			],
-			[
 				"net",
 				"network"
 			],
@@ -297,10 +369,6 @@
 			],
 			[
 				"ret",
-				"return"
-			],
-			[
-				"re",
 				"return"
 			],
 			[
@@ -368,10 +436,6 @@
 				"return"
 			],
 			[
-				"Ex",
-				"EXIT_FAILURE"
-			],
-			[
 				"lf",
 				"lfir"
 			],
@@ -420,124 +484,95 @@
 	"buffers":
 	[
 		{
-			"contents": "#ifndef MISC_H\n#define MISC_H\n\n#include <stdio.h>\n#include <stdlib.h>\n\n#define nullptr 0\n#define nullstr \"\"\n#define nullchr '\\0'\n#define true 1\n#define false 0\n\ntypedef unsigned int uint;\ntypedef unsigned long ulong;\ntypedef unsigned char uchar;\ntypedef unsigned long long ullong;\ntypedef long long llong;\ntypedef long double ldouble;\n\n/*\n * wrapper functions for alternative handling\n * if needed.\n */\nvoid free_s(void *d);\nvoid* malloc_s(int sz);\nvoid* realloc_s(void *d, int sz);\n\n/*\n * Type* <typename>_s(int N)\n * safely allocates a list of N types\n */\nuchar* uchar_s(int N);\nuint* uint_s(int N);\nulong* ulong_s(int N);\nullong* ullong_s(int N);\nllong* llong_s(int N);\nchar* char_s(int N);\nint* int_s(int N);\nlong* long_s(int N);\ndouble* double_s(int N);\nfloat* float_s(int N);\nldouble* ldouble_s(int N);\n\n/*\n * Type* <typename>2_s(Type* d, int N)\n * safely reallocates a list of types to N types \n */\nuchar* uchar2_s(uchar *d, int N);\nuint* uint2_s(uint *d, int N);\nulong* ulong2_s(ulong *d, int N);\nullong* ullong2_s(ullong *d, int N);\nllong* llong2_s(llong *d, int N);\nchar* char2_s(char *d, int N);\nint* int2_s(int *d, int N);\nlong* long2_s(long *d, int N);\ndouble* double2_s(double *d, int N);\nfloat* float2_s(float *d, int N);\nldouble* ldouble2_s(ldouble *d, int N);\n\n/*\n * Type** p<typename>_s(int N)\n * safely allocates a list of N pointer types\n */\nuchar** puchar_s(int N);\nuint** puint_s(int N);\nulong** pulong_s(int N);\nullong** pullong_s(int N);\nllong** pllong_s(int N);\nchar** pchar_s(int N);\nint** pint_s(int N);\nlong** plong_s(int N);\ndouble** pdouble_s(int N);\nfloat** pfloat_s(int N);\nldouble** pldouble_s(int N);\n\n/*\n * Type** p<typename>2_s(Type** d, int N)\n * safely reallocates a list of pointer types to N pointer types \n */\nuchar** puchar2_s(uchar **d, int N);\nuint** puint2_s(uint **d, int N);\nulong** pulong2_s(ulong **d, int N);\nullong** pullong2_s(ullong **d, int N);\nllong** pllong2_s(llong **d, int N);\nchar** pchar2_s(char **d, int N);\nint** pint2_s(int **d, int N);\nlong** plong2_s(long **d, int N);\ndouble** pdouble2_s(double **d, int N);\nfloat** pfloat2_s(float **d, int N);\nldouble** pldouble2_s(ldouble **d, int N);\n\n/*\n * memory manipulation funcions given known byte size,\n * internaly changes the pointers to char* (bytes) and back \n * to void pointer on return\n *\n * set : initializes the array to v bytes\n * unset : initializes the array to null bytes\n * rm : free pointer and return nullptr\n * mk : makes pointer to of byte size\n * rs : resizes a pointer to new byte size\n * cp : copies bytes size into other pointer\n * mv : moves bytes size into other pointer\n * len : computes size of null termiated bytes pointer\n */\nvoid* set(void *d, char v, int sz);\nvoid* unset(void *d, int sz);\nvoid* rm(void *d);\nvoid* mk(int sz);\nvoid* rs(void *d, int sz);\nvoid* cp(void *lhs, const void *rhs, int sz);\nvoid* mv(void *lhs, void **prhs, int sz);\nint len(const void *d);\n\n/*\n * memory manipulation funcions given null terminated bytes \n * pointer, internaly changes the pointers to char* (bytes)  \n * and back to void pointer on return\n *\n * same as previous but now stops at the first null termination\n */\nvoid* set0(void *d, char v);\nvoid* unset0(void *d);\nvoid* mk0(int sz);\nvoid* rs0(void *d, int sz);\nvoid* cp0(void *lhs, const void *rhs);\nvoid* mv0(void *lhs, void **prhs);\n\n/*\n * memory manipulation funcions given null terminated bytes \n * pointer, internaly changes the pointers to char* (bytes)  \n * and back to void pointer on return\n *\n * same as previous but now ensures the size of the right hand\n * size using len(rhs) using resize.\n */\nvoid* cp0len(void *lhs, const void *rhs);\nvoid* mv0len(void *lhs, void **prhs);\n\n/*\n * same as previous but allows you to request the byte size\n * of the resulting bytes pointer.\n */\nvoid* cp0len2(void *lhs, const void *rhs, int *pN);\nvoid* mv0len2(void *lhs, void **prhs, int *pN);\n\n/* implementation of the functions */\n#include \"misc.incl\"\n\n#endif",
 			"file": "Lab1/misc.h",
-			"file_size": 4087,
-			"file_write_time": 131638687264105753,
 			"settings":
 			{
-				"buffer_size": 3938,
+				"buffer_size": 4952,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "#include <unistd.h>\n#include <sys/wait.h>\n#include <string.h>\n#include \"misc.h\"\n\n#define DELIM_SPACE \" \\t\\n\\r\\v\\f\"\n#define ARGS_INIT_SIZE 8\n#define INVALID_COMMAND_SS \"%s: command %s not found\\n\"\n\nint execvpe(const char *path, char * const argv[], char *const envp[]);\n\ntypedef struct args_t { char **d, *_d; } args_t;\n\nargs_t makeargs(const char *src)\n{\n\targs_t args;\n\tint N, _N;\n\t\n\tif(!src || !*src) { exit(EXIT_FAILURE); }\n\t\n\tN = 0; _N = ARGS_INIT_SIZE;\n\targs._d = cp0len(nullptr, src);\n\targs.d = pchar_s(_N);\n\targs.d[N] = strtok(args._d, DELIM_SPACE);\n\n\twhile(args.d[N++])\n\t{\n\t\tif(N >= _N) { args.d = pchar2_s(args.d, _N >>= 1); }\n\t\targs.d[N] = strtok(nullptr, DELIM_SPACE);\n\t}\n\n\treturn args;\n}\n\nint main(int argc, char **argv, char **envp)\n{\n\targs_t args;\n\n\tif(argc != 2) { return EXIT_FAILURE; }\n\t\n\targs = makeargs(argv[1]);\n\t\n\tif(args.d[0] && fork())\n\t{\n\t\texecvpe(args.d[0], args.d, envp);\n\t\tprintf(INVALID_COMMAND_SS, argv[0], args.d[0]);\n\t\treturn EXIT_FAILURE;\n\t}\n\t\n\twait(nullptr);\n\tfree_s(args.d);\n\tfree_s(args._d);\n\n\treturn EXIT_SUCCESS;\n}",
-			"file": "Lab1/execute.c",
-			"file_size": 1104,
-			"file_write_time": 131638720140342694,
-			"settings":
-			{
-				"buffer_size": 1050,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "#include <stdio.h>\n#include <stdlib.h>\n#include <unistd.h>\n#include <sys/wait.h>\n#include \"misc.h\"\n\n#define RING_LIMIT_K 50\n#define RING_MSG_DD \"pid=%d: %d\\n\"\n\nvoid cpipe(int N, int *cpid, const int fd0[2], int fdk[2], int fdn[2])\n{\t\n\tint n;\n\tfdk[1] = fd0[1];\n\tfor (n = 1; n < N; ++n)\n\t{\n\t\t*cpid = fork();\n\t\tif(*cpid)\n\t\t{\n\t\t\tif(pipe(fdn) < 0) { exit(EXIT_FAILURE); }\n\t\t\tfdn[]\n\t\t\treturn;\n\t\t}\n\t}\n\tfdk[0] = fdn[0];\n}\n\nint main(int argc, char **argv)\n{\n\tint cpid, pid, fd0[2], fdk[2], fdn[2], N, K, sz;\n\n\tif(argc != 2) { exit(EXIT_FAILURE); }\n\n\tN = atoi(argv[1]); K = 0; sz = sizeof(int);\n\tif(N < 2 || N > 16) { exit(EXIT_FAILURE); }\n\n\tif(pipe(fd0) < 0) { exit(EXIT_FAILURE); }\n\twrite(fd0[1], &K, sz);\n\tcpipe(N, &cpid, fd0, fdk, fdn);\n\t\n\tpid = getpid();\n\twhile(true)\n\t{\n\t\tif(cpid)\n\t\t{\n\t\t\t/* parent code */\n\t\t\tread(fdk[0], &K, sz);\n\t\t\t++K;\n\t\t\twrite(fdk[1], &K, sz); \n\t\t}\n\t\telse\n\t\t{\n\t\t\t/* child code */\n\t\t\tread(fdn[0], &K, sz);\n\t\t\t++K;\n\t\t\twrite(fdn[1], &K, sz);\n\t\t}\n\n\t\tif(K > RING_LIMIT_K) { break; };\n\t\t\n\t\tprintf(RING_MSG_DD, pid, K);\n\t}\n\t\n\twait(nullptr);\n\n\treturn EXIT_SUCCESS;\n}\n",
-			"file": "Lab1/ring.c",
-			"file_size": 1222,
-			"file_write_time": 131638990811426193,
-			"settings":
-			{
-				"buffer_size": 1076,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "#include <map>\n#include <vector>\n\n#ifndef _XOPEN_SOURCE\n#define _XOPEN_SOURCE 500\n#endif\n\n#include <ftw.h>\n#include <limits.h> // PATH_MAX\n#include <string.h>\n#include <unistd.h>\n#include <sys/stat.h>\n#include <fcntl.h>\n#include <stdio.h>\n\nstd::map<off_t, std::vector<std::string>> filesBySize;\nstd::vector<off_t> potentialDuplicates;\n\n// compares files with filepaths file1 and file2 byte for byte\nbool sameContents(std::string const &file1, std::string const &file2)\n{\n    size_t constexpr buffersize = 100;\n    char buffer1[buffersize];\n    char buffer2[buffersize];\n    int fd1 = open(file1.data(), O_RDONLY);\n    int fd2 = open(file2.data(), O_RDONLY);\n    for (;;) {\n        int rd1, rd2;\n        rd1 = read(fd1, buffer1, buffersize);\n        rd2 = read(fd2, buffer2, buffersize);\n        if (rd1 == -1 || rd2 == -1) { // error while reading\n            fprintf(stderr, \"read failed\\n\");\n            close(fd1);\n            close(fd2);\n            throw 1;\n        }\n        if (strncmp(buffer1, buffer2, buffersize) != 0)\n            return false;\n        if (rd1 == 0 || rd2 == 0) // EOF\n            break;\n    }\n    return true;\n\n}\n\n// called for each file in the tree\nint visitDir(const char *pathname, const struct stat *statbuf,\n        int typeflag, struct FTW *ftwbuf)\n{           // we are only concerned with regular files\n    if (not S_ISREG(statbuf->st_mode)) \n        return 0;\n    if (filesBySize.count(statbuf->st_size) > 0)\n        potentialDuplicates.push_back(statbuf->st_size);\n\n    filesBySize[statbuf->st_size].push_back(pathname);\n    return 0;\n}\n\n// takes a vector of filenames with equal size and prints duplicates\nvoid printDuplicates(std::vector<std::string> const &filenames)\n{\n    for (size_t idx = 0; idx != filenames.size(); ++idx) {\n        for (size_t jdx = idx + 1; jdx < filenames.size(); ++jdx) {\n            if (sameContents(filenames.at(idx), filenames.at(jdx))) {\n                printf(\"%s and %s are the same file\\n\",\n                        filenames.at(idx).data(), filenames.at(jdx).data());\n            }\n        }\n    }\n}\n\nstd::string getWorkingDirectory()\n{\n    char *currdir = new char[PATH_MAX];\n    if (getcwd(currdir, PATH_MAX) == NULL) {\n        delete currdir;\n        fprintf(stderr, \"getcwd failed\\n\");\n        throw 1;\n    }\n    return currdir;\n}\n\nint main()\ntry\n{\n    int constexpr maxFdNo = 50; // maximum file descriptors we allow nftw to open\n    int constexpr flags = 0; // do not follow symbolic links\n    // calls visitDir on each file from the current working directory\n    nftw(getWorkingDirectory().data(), &visitDir, maxFdNo, flags);\n\n    for (auto const &val: potentialDuplicates) {\n        printDuplicates(filesBySize[val]);\n    }\n}\ncatch(int err)\n{\n    return err;\n}\n",
-			"file": "Lab1/_local/ex3/main.cc",
-			"file_size": 2742,
-			"file_write_time": 131638993945381791,
-			"settings":
-			{
-				"buffer_size": 2742,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "#include <stdio.h>\n#include <stdlib.h>\n#include <unistd.h>\n#include <sys/wait.h>\n\nint main (int argc, char *argv[]) {\n  int parent, child, status;\n\n  parent = getpid();\n\n  child = fork();\n  if (child < 0) {\n    fprintf (stderr, \"Fork failed: abort\\n\");\n    return EXIT_FAILURE;\n  }\n\n  if (child != 0) {\n    /* Parent process gets here */\n    printf (\"parent: Mypid=%d, child=%d\\n\", parent, child);\n  } else {\n    printf (\"child:  Mypid=%d, child=%d, parent=%d (getppid: %d)\\n\", \n\t    getpid(), child, parent, getppid());\n    exit(99);\n  }\n  \n  waitpid(-1, &status, 0);\n  printf (\"status=%d,%d\\n\", status/256, status%256);\n\n  return EXIT_SUCCESS;\n}\n",
-			"file": "Lab1/_local/fork.c",
-			"file_size": 648,
-			"file_write_time": 128163074850000000,
-			"settings":
-			{
-				"buffer_size": 648,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "7f45 4c46 0201 0100 0000 0000 0000 0000\n0200 3e00 0100 0000 9006 4000 0000 0000\n4000 0000 0000 0000 e842 0000 0000 0000\n0000 0000 4000 3800 0900 4000 1f00 1c00\n0600 0000 0500 0000 4000 0000 0000 0000\n4000 4000 0000 0000 4000 4000 0000 0000\nf801 0000 0000 0000 f801 0000 0000 0000\n0800 0000 0000 0000 0300 0000 0400 0000\n3802 0000 0000 0000 3802 4000 0000 0000\n3802 4000 0000 0000 1c00 0000 0000 0000\n1c00 0000 0000 0000 0100 0000 0000 0000\n0100 0000 0500 0000 0000 0000 0000 0000\n0000 4000 0000 0000 0000 4000 0000 0000\n8c21 0000 0000 0000 8c21 0000 0000 0000\n0000 2000 0000 0000 0100 0000 0600 0000\n102e 0000 0000 0000 102e 6000 0000 0000\n102e 6000 0000 0000 6802 0000 0000 0000\n7002 0000 0000 0000 0000 2000 0000 0000\n0200 0000 0600 0000 282e 0000 0000 0000\n282e 6000 0000 0000 282e 6000 0000 0000\nd001 0000 0000 0000 d001 0000 0000 0000\n0800 0000 0000 0000 0400 0000 0400 0000\n5402 0000 0000 0000 5402 4000 0000 0000\n5402 4000 0000 0000 4400 0000 0000 0000\n4400 0000 0000 0000 0400 0000 0000 0000\n50e5 7464 0400 0000 0816 0000 0000 0000\n0816 4000 0000 0000 0816 4000 0000 0000\n4402 0000 0000 0000 4402 0000 0000 0000\n0400 0000 0000 0000 51e5 7464 0600 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 1000 0000 0000 0000\n52e5 7464 0400 0000 102e 0000 0000 0000\n102e 6000 0000 0000 102e 6000 0000 0000\nf001 0000 0000 0000 f001 0000 0000 0000\n0100 0000 0000 0000 2f6c 6962 3634 2f6c\n642d 6c69 6e75 782d 7838 362d 3634 2e73\n6f2e 3200 0400 0000 1000 0000 0100 0000\n474e 5500 0000 0000 0200 0000 0600 0000\n2000 0000 0400 0000 1400 0000 0300 0000\n474e 5500 9e19 3a5a 6bb6 e716 7938 5db6\n1f7c 7d86 9fd1 6353 0100 0000 0100 0000\n0100 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n5100 0000 1200 0000 0000 0000 0000 0000\n0000 0000 0000 0000 1000 0000 1200 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n2a00 0000 1200 0000 0000 0000 0000 0000\n0000 0000 0000 0000 3f00 0000 1200 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n5600 0000 2000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 3800 0000 1200 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n2200 0000 1200 0000 0000 0000 0000 0000\n0000 0000 0000 0000 3100 0000 1200 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0b00 0000 1200 0000 0000 0000 0000 0000\n0000 0000 0000 0000 1800 0000 1200 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n1d00 0000 1200 0000 0000 0000 0000 0000\n0000 0000 0000 0000 006c 6962 632e 736f\n2e36 0065 7869 7400 6578 6563 7670 6500\n7761 6974 0066 6f72 6b00 7265 616c 6c6f\n6300 7072 696e 7466 0073 7472 746f 6b00\n6d61 6c6c 6f63 005f 5f6c 6962 635f 7374\n6172 745f 6d61 696e 0066 7265 6500 5f5f\n676d 6f6e 5f73 7461 7274 5f5f 0047 4c49\n4243 5f32 2e31 3100 474c 4942 435f 322e\n322e 3500 0000 0200 0300 0200 0200 0000\n0200 0200 0200 0200 0200 0200 0000 0000\n0100 0200 0100 0000 1000 0000 0000 0000\n9191 9606 0000 0300 6500 0000 1000 0000\n751a 6909 0000 0200 7000 0000 0000 0000\nf82f 6000 0000 0000 0600 0000 0500 0000\n0000 0000 0000 0000 1830 6000 0000 0000\n0700 0000 0100 0000 0000 0000 0000 0000\n2030 6000 0000 0000 0700 0000 0200 0000\n0000 0000 0000 0000 2830 6000 0000 0000\n0700 0000 0300 0000 0000 0000 0000 0000\n3030 6000 0000 0000 0700 0000 0400 0000\n0000 0000 0000 0000 3830 6000 0000 0000\n0700 0000 0600 0000 0000 0000 0000 0000\n4030 6000 0000 0000 0700 0000 0700 0000\n0000 0000 0000 0000 4830 6000 0000 0000\n0700 0000 0800 0000 0000 0000 0000 0000\n5030 6000 0000 0000 0700 0000 0900 0000\n0000 0000 0000 0000 5830 6000 0000 0000\n0700 0000 0a00 0000 0000 0000 0000 0000\n6030 6000 0000 0000 0700 0000 0b00 0000\n0000 0000 0000 0000 4883 ec08 488b 0545\n2a20 0048 85c0 7405 e8c3 0000 0048 83c4\n08c3 0000 0000 0000 0000 0000 0000 0000\nff35 322a 2000 ff25 342a 2000 0f1f 4000\nff25 322a 2000 6800 0000 00e9 e0ff ffff\nff25 2a2a 2000 6801 0000 00e9 d0ff ffff\nff25 222a 2000 6802 0000 00e9 c0ff ffff\nff25 1a2a 2000 6803 0000 00e9 b0ff ffff\nff25 122a 2000 6804 0000 00e9 a0ff ffff\nff25 0a2a 2000 6805 0000 00e9 90ff ffff\nff25 022a 2000 6806 0000 00e9 80ff ffff\nff25 fa29 2000 6807 0000 00e9 70ff ffff\nff25 f229 2000 6808 0000 00e9 60ff ffff\nff25 ea29 2000 6809 0000 00e9 50ff ffff\nff25 7229 2000 6690 0000 0000 0000 0000\n31ed 4989 d15e 4889 e248 83e4 f050 5449\nc7c0 d015 4000 48c7 c160 1540 0048 c7c7\n8d14 4000 e857 ffff fff4 660f 1f44 0000\nb87f 3060 0055 482d 7830 6000 4883 f80e\n4889 e576 1bb8 0000 0000 4885 c074 115d\nbf78 3060 00ff e066 0f1f 8400 0000 0000\n5dc3 0f1f 4000 662e 0f1f 8400 0000 0000\nbe78 3060 0055 4881 ee78 3060 0048 c1fe\n0348 89e5 4889 f048 c1e8 3f48 01c6 48d1\nfe74 15b8 0000 0000 4885 c074 0b5d bf78\n3060 00ff e00f 1f00 5dc3 660f 1f44 0000\n803d 3129 2000 0075 1155 4889 e5e8 6eff\nffff 5dc6 051e 2920 0001 f3c3 0f1f 4000\nbf20 2e60 0048 833f 0075 05eb 930f 1f00\nb800 0000 0048 85c0 74f1 5548 89e5 ffd0\n5de9 7aff ffff 5548 89e5 4883 ec10 4889\n7df8 488b 45f8 4889 c7e8 42fe ffff 90c9\nc355 4889 e548 83ec 2089 7dec 8b45 ec48\n9848 89c7 e867 feff ff48 8945 f848 837d\nf800 750a bf01 0000 00e8 82fe ffff 488b\n45f8 c9c3 5548 89e5 4883 ec10 4889 7df8\n8975 f48b 45f4 4863 d048 8b45 f848 89d6\n4889 c7e8 38fe ffff 4889 45f8 4883 7df8\n0075 0abf 0100 0000 e843 feff ff48 8b45\nf8c9 c355 4889 e548 83ec 1089 7dfc 8b45\nfc89 c7e8 79ff ffff c9c3 5548 89e5 4883\nec10 897d fc8b 45fc c1e0 0289 c7e8 5fff\nffff c9c3 5548 89e5 4883 ec10 897d fc8b\n45fc c1e0 0389 c7e8 45ff ffff c9c3 5548\n89e5 4883 ec10 897d fc8b 45fc c1e0 0389\nc7e8 2bff ffff c9c3 5548 89e5 4883 ec10\n897d fc8b 45fc c1e0 0389 c7e8 11ff ffff\nc9c3 5548 89e5 4883 ec10 897d fc8b 45fc\n89c7 e8fa feff ffc9 c355 4889 e548 83ec\n1089 7dfc 8b45 fcc1 e002 89c7 e8e0 feff\nffc9 c355 4889 e548 83ec 1089 7dfc 8b45\nfcc1 e003 89c7 e8c6 feff ffc9 c355 4889\ne548 83ec 1089 7dfc 8b45 fcc1 e003 89c7\ne8ac feff ffc9 c355 4889 e548 83ec 1089\n7dfc 8b45 fcc1 e002 89c7 e892 feff ffc9\nc355 4889 e548 83ec 1089 7dfc 8b45 fcc1\ne004 89c7 e878 feff ffc9 c355 4889 e548\n83ec 1048 897d f889 75f4 8b55 f448 8b45\nf889 d648 89c7 e889 feff ffc9 c355 4889\ne548 83ec 1048 897d f889 75f4 8b45 f4c1\ne002 89c2 488b 45f8 89d6 4889 c7e8 62fe\nffff c9c3 5548 89e5 4883 ec10 4889 7df8\n8975 f48b 45f4 c1e0 0389 c248 8b45 f889\nd648 89c7 e83b feff ffc9 c355 4889 e548\n83ec 1048 897d f889 75f4 8b45 f4c1 e003\n89c2 488b 45f8 89d6 4889 c7e8 14fe ffff\nc9c3 5548 89e5 4883 ec10 4889 7df8 8975\nf48b 45f4 c1e0 0389 c248 8b45 f889 d648\n89c7 e8ed fdff ffc9 c355 4889 e548 83ec\n1048 897d f889 75f4 8b55 f448 8b45 f889\nd648 89c7 e8cb fdff ffc9 c355 4889 e548\n83ec 1048 897d f889 75f4 8b45 f4c1 e002\n89c2 488b 45f8 89d6 4889 c7e8 a4fd ffff\nc9c3 5548 89e5 4883 ec10 4889 7df8 8975\nf48b 45f4 c1e0 0389 c248 8b45 f889 d648\n89c7 e87d fdff ffc9 c355 4889 e548 83ec\n1048 897d f889 75f4 8b45 f4c1 e003 89c2\n488b 45f8 89d6 4889 c7e8 56fd ffff c9c3\n5548 89e5 4883 ec10 4889 7df8 8975 f48b\n45f4 c1e0 0289 c248 8b45 f889 d648 89c7\ne82f fdff ffc9 c355 4889 e548 83ec 1048\n897d f889 75f4 8b45 f4c1 e004 89c2 488b\n45f8 89d6 4889 c7e8 08fd ffff c9c3 5548\n89e5 4883 ec10 897d fc8b 45fc c1e0 0389\nc7e8 bbfc ffff c9c3 5548 89e5 4883 ec10\n897d fc8b 45fc c1e0 0389 c7e8 a1fc ffff\nc9c3 5548 89e5 4883 ec10 897d fc8b 45fc\nc1e0 0389 c7e8 87fc ffff c9c3 5548 89e5\n4883 ec10 897d fc8b 45fc c1e0 0389 c7e8\n6dfc ffff c9c3 5548 89e5 4883 ec10 897d\nfc8b 45fc c1e0 0389 c7e8 53fc ffff c9c3\n5548 89e5 4883 ec10 897d fc8b 45fc c1e0\n0389 c7e8 39fc ffff c9c3 5548 89e5 4883\nec10 897d fc8b 45fc c1e0 0389 c7e8 1ffc\nffff c9c3 5548 89e5 4883 ec10 897d fc8b\n45fc c1e0 0389 c7e8 05fc ffff c9c3 5548\n89e5 4883 ec10 897d fc8b 45fc c1e0 0389\nc7e8 ebfb ffff c9c3 5548 89e5 4883 ec10\n897d fc8b 45fc c1e0 0389 c7e8 d1fb ffff\nc9c3 5548 89e5 4883 ec10 897d fc8b 45fc\nc1e0 0389 c7e8 b7fb ffff c9c3 5548 89e5\n4883 ec10 4889 7df8 8975 f48b 45f4 c1e0\n0389 c248 8b45 f889 d648 89c7 e8c3 fbff\nffc9 c355 4889 e548 83ec 1048 897d f889\n75f4 8b45 f4c1 e003 89c2 488b 45f8 89d6\n4889 c7e8 9cfb ffff c9c3 5548 89e5 4883\nec10 4889 7df8 8975 f48b 45f4 c1e0 0389\nc248 8b45 f889 d648 89c7 e875 fbff ffc9\nc355 4889 e548 83ec 1048 897d f889 75f4\n8b45 f4c1 e003 89c2 488b 45f8 89d6 4889\nc7e8 4efb ffff c9c3 5548 89e5 4883 ec10\n4889 7df8 8975 f48b 45f4 c1e0 0389 c248\n8b45 f889 d648 89c7 e827 fbff ffc9 c355\n4889 e548 83ec 1048 897d f889 75f4 8b45\nf4c1 e003 89c2 488b 45f8 89d6 4889 c7e8\n00fb ffff c9c3 5548 89e5 4883 ec10 4889\n7df8 8975 f48b 45f4 c1e0 0389 c248 8b45\nf889 d648 89c7 e8d9 faff ffc9 c355 4889\ne548 83ec 1048 897d f889 75f4 8b45 f4c1\ne003 89c2 488b 45f8 89d6 4889 c7e8 b2fa\nffff c9c3 5548 89e5 4883 ec10 4889 7df8\n8975 f48b 45f4 c1e0 0389 c248 8b45 f889\nd648 89c7 e88b faff ffc9 c355 4889 e548\n83ec 1048 897d f889 75f4 8b45 f4c1 e003\n89c2 488b 45f8 89d6 4889 c7e8 64fa ffff\nc9c3 5548 89e5 4883 ec10 4889 7df8 8975\nf48b 45f4 c1e0 0389 c248 8b45 f889 d648\n89c7 e83d faff ffc9 c355 4889 e548 83ec\n2048 897d e889 f089 55e0 8845 e448 837d\ne800 750a bf01 0000 00e8 92f8 ffff 488b\n45e8 4889 45f8 eb13 8b45 e048 63d0 488b\n45f8 4801 c20f b645 e488 0283 6de0 0183\n7de0 007f e348 8b45 f8c9 c355 4889 e548\n83ec 1048 897d f889 75f4 8b55 f448 8b45\nf8be 0000 0000 4889 c7e8 8bff ffff c9c3\n5548 89e5 4883 ec10 4889 7df8 488b 45f8\n4889 c7e8 5ef9 ffff b800 0000 00c9 c355\n4889 e548 83ec 1089 7dfc 8b45 fc89 c7e8\n5df9 ffff c9c3 5548 89e5 4883 ec10 4889\n7df8 8975 f48b 55f4 488b 45f8 89d6 4889\nc7e8 6ef9 ffff c9c3 5548 89e5 4883 ec30\n4889 7de8 4889 75e0 8955 dc48 837d e800\n7407 4883 7de0 0075 0abf 0100 0000 e8bd\nf7ff ff48 8b45 e848 8945 f048 8b45 e048\n8945 f8eb 1f8b 45dc 4863 d048 8b45 f048\n01c2 8b45 dc48 63c8 488b 45f8 4801 c80f\nb600 8802 836d dc01 837d dc00 7fd7 488b\n45f0 c9c3 5548 89e5 4883 ec30 4889 7de8\n4889 75e0 8955 dc48 837d e800 7413 4883\n7de0 0074 0c48 8b45 e048 8b00 4885 c075\n0abf 0100 0000 e845 f7ff ff48 8b45 e848\n8945 f048 8b45 e048 8b00 4889 45f8 eb2f\n8b45 dc48 63d0 488b 45f0 4801 c28b 45dc\n4863 c848 8b45 f848 01c8 0fb6 0088 028b\n45dc 4863 d048 8b45 f848 01d0 c600 0083\n6ddc 0183 7ddc 007f c748 8b45 e048 8b55\nf848 8910 488b 45f0 c9c3 5548 89e5 4883\nec20 4889 7de8 4883 7de8 0075 0abf 0100\n0000 e8c9 f6ff ff48 8b45 e848 8945 f8c7\n45f4 0000 0000 eb04 8345 f401 8b45 f448\n63d0 488b 45f8 4801 d00f b600 84c0 75e8\n8b45 f483 e801 c9c3 5548 89e5 4883 ec20\n4889 7de8 89f0 8845 e448 837d e800 750a\nbf01 0000 00e8 76f6 ffff 488b 45e8 4889\n45f8 c745 f400 0000 00eb 178b 45f4 4863\nd048 8b45 f848 01c2 0fb6 45e4 8802 836d\nf401 8b45 f448 63d0 488b 45f8 4801 d00f\nb600 84c0 75d5 488b 45f8 c9c3 5548 89e5\n4883 ec10 4889 7df8 488b 45f8 be00 0000\n0048 89c7 e87f ffff ffc9 c355 4889 e548\n83ec 2089 7dec 8b45 ec83 c001 89c7 e84e\nf7ff ff48 8945 f88b 45ec 4863 d048 8b45\nf848 01d0 c600 0048 8b45 f8c9 c355 4889\ne548 83ec 2048 897d e889 75e4 8b45 e48d\n5001 488b 45e8 89d6 4889 c7e8 44f7 ffff\n4889 45f8 8b45 e448 63d0 488b 45f8 4801\nd0c6 0000 488b 45f8 c9c3 5548 89e5 4883\nec30 4889 7dd8 4889 75d0 4883 7dd8 0074\n0748 837d d000 750a bf01 0000 00e8 7ef5\nffff 488b 45d8 4889 45f0 488b 45d0 4889\n45f8 c745 ec00 0000 00eb 0483 45ec 018b\n45ec 4863 d048 8b45 f048 01d0 0fb6 0084\nc074 268b 45ec 4863 d048 8b45 f048 01d0\n8b55 ec48 63ca 488b 55f8 4801 ca0f b612\n8810 0fb6 0084 c075 c248 8b45 f0c9 c355\n4889 e548 83ec 3048 897d d848 8975 d048\n837d d800 7413 4883 7dd0 0074 0c48 8b45\nd048 8b00 4885 c075 0abf 0100 0000 e8ed\nf4ff ff48 8b45 d848 8945 f048 8b45 d048\n8b00 4889 45f8 c745 ec00 0000 00eb 148b\n45ec 4863 d048 8b45 f848 01d0 c600 0083\n45ec 018b 45ec 4863 d048 8b45 f048 01d0\n0fb6 0084 c074 268b 45ec 4863 d048 8b45\nf048 01d0 8b55 ec48 63ca 488b 55f8 4801\nca0f b612 8810 0fb6 0084 c075 b248 8b45\nd048 8b55 f848 8910 488b 45f0 c9c3 5548\n89e5 4883 ec40 4889 7dd8 4889 75d0 4889\n55c8 4883 7dd0 0075 0abf 0100 0000 e84d\nf4ff ff48 8b45 d048 89c7 e85b fdff ff83\nc001 8945 ec8b 55ec 488b 45d8 89d6 4889\nc7e8 20fc ffff 4889 45f0 488b 45d0 4889\n45f8 c745 e800 0000 00eb 238b 45e8 4863\nd048 8b45 f048 01c2 8b45 e848 63c8 488b\n45f8 4801 c80f b600 8802 8345 e801 8b45\ne83b 45ec 7cd5 4883 7dc8 0074 0948 8b45\nc88b 55ec 8910 488b 45f0 c9c3 5548 89e5\n4883 ec40 4889 7dd8 4889 75d0 4889 55c8\n4883 7dd0 0074 0c48 8b45 d048 8b00 4885\nc075 0abf 0100 0000 e8a3 f3ff ff48 8b45\nd048 8b00 4889 45f0 488b 45f0 4889 c7e8\na6fc ffff 83c0 0189 45ec 8b55 ec48 8b45\nd889 d648 89c7 e86b fbff ff48 8945 f8c7\n45e8 0000 0000 eb33 8b45 e848 63d0 488b\n45f8 4801 c28b 45e8 4863 c848 8b45 f048\n01c8 0fb6 0088 028b 45e8 4863 d048 8b45\nf048 01d0 c600 0083 45e8 018b 45e8 3b45\nec7c c548 837d c800 7409 488b 45c8 8b55\nec89 1048 8b45 d048 8b55 f048 8910 488b\n45f8 c9c3 5548 89e5 4883 ec10 4889 7df8\n4889 75f0 488b 4df0 488b 45f8 ba00 0000\n0048 89ce 4889 c7e8 72fe ffff 90c9 c355\n4889 e548 83ec 1048 897d f848 8975 f048\n8b4d f048 8b45 f8ba 0000 0000 4889 ce48\n89c7 e8e5 feff ff90 c9c3 5548 89e5 5348\n83ec 3848 897d c848 837d c800 740b 488b\n45c8 0fb6 0084 c075 0abf 0100 0000 e88d\nf2ff ffc7 45d8 0000 0000 c745 dc08 0000\n0048 8b45 c848 89c6 bf00 0000 00e8 62ff\nffff 4889 45e8 8b45 dc89 c7e8 60f7 ffff\n4889 45e0 488b 45e0 8b55 d848 63d2 48c1\ne203 488d 1c10 488b 45e8 bee4 1540 0048\n89c7 e829 f2ff ff48 8903 eb44 8b45 d83b\n45dc 7c18 d17d dc48 8b45 e08b 55dc 89d6\n4889 c7e8 77f8 ffff 4889 45e0 488b 45e0\n8b55 d848 63d2 48c1 e203 488d 1c10 bee4\n1540 00bf 0000 0000 e8e3 f1ff ff48 8903\n488b 4de0 8b45 d88d 5001 8955 d848 9848\nc1e0 0348 01c8 488b 0048 85c0 759e 488b\n45e0 488b 55e8 4883 c438 5b5d c355 4889\ne548 83ec 4089 7ddc 4889 75d0 4889 55c8\n837d dc02 740a b801 0000 00e9 a000 0000\n488b 45d0 4883 c008 488b 0048 89c7 e8d7\nfeff ff48 8945 f048 8955 f8e8 a0f1 ffff\n8945 ec48 8b45 f048 8b00 4885 c074 4783\n7dec 0074 4148 8b4d f048 8b45 f048 8b00\n488b 55c8 4889 ce48 89c7 e8f1 f0ff ff48\n8b45 f048 8b10 488b 45d0 488b 0048 89c6\nbfeb 1540 00b8 0000 0000 e8e1 f0ff ffb8\n0100 0000 eb2a b800 0000 0048 89c7 e82d\nf1ff ff48 8b45 f048 89c7 e847 f2ff ff48\n8b45 f848 89c7 e83b f2ff ffb8 0000 0000\nc9c3 662e 0f1f 8400 0000 0000 0f1f 4000\n4157 4156 4189 ff41 5541 544c 8d25 9e18\n2000 5548 8d2d 9e18 2000 5349 89f6 4989\nd54c 29e5 4883 ec08 48c1 fd03 e817 f0ff\nff48 85ed 7420 31db 0f1f 8400 0000 0000\n4c89 ea4c 89f6 4489 ff41 ff14 dc48 83c3\n0148 39eb 75ea 4883 c408 5b5d 415c 415d\n415e 415f c390 662e 0f1f 8400 0000 0000\nf3c3 0000 4883 ec08 4883 c408 c300 0000\n0100 0200 2009 0a0d 0b0c 0025 733a 2063\n6f6d 6d61 6e64 2025 7320 6e6f 7420 666f\n756e 640a 0000 0000 011b 033b 4402 0000\n4700 0000 c8ef ffff 9002 0000 88f0 ffff\n6002 0000 7ef1 ffff b802 0000 99f1 ffff\nd802 0000 ccf1 ffff f802 0000 0bf2 ffff\n1803 0000 22f2 ffff 3803 0000 3cf2 ffff\n5803 0000 56f2 ffff 7803 0000 70f2 ffff\n9803 0000 8af2 ffff b803 0000 a1f2 ffff\nd803 0000 bbf2 ffff f803 0000 d5f2 ffff\n1804 0000 eff2 ffff 3804 0000 09f3 ffff\n5804 0000 23f3 ffff 7804 0000 45f3 ffff\n9804 0000 6cf3 ffff b804 0000 93f3 ffff\nd804 0000 baf3 ffff f804 0000 e1f3 ffff\n1805 0000 03f4 ffff 3805 0000 2af4 ffff\n5805 0000 51f4 ffff 7805 0000 78f4 ffff\n9805 0000 9ff4 ffff b805 0000 c6f4 ffff\nd805 0000 e0f4 ffff f805 0000 faf4 ffff\n1806 0000 14f5 ffff 3806 0000 2ef5 ffff\n5806 0000 48f5 ffff 7806 0000 62f5 ffff\n9806 0000 7cf5 ffff b806 0000 96f5 ffff\nd806 0000 b0f5 ffff f806 0000 caf5 ffff\n1807 0000 e4f5 ffff 3807 0000 0bf6 ffff\n5807 0000 32f6 ffff 7807 0000 59f6 ffff\n9807 0000 80f6 ffff b807 0000 a7f6 ffff\nd807 0000 cef6 ffff f807 0000 f5f6 ffff\n1808 0000 1cf7 ffff 3808 0000 43f7 ffff\n5808 0000 6af7 ffff 7808 0000 91f7 ffff\n9808 0000 e3f7 ffff b808 0000 08f8 ffff\nd808 0000 27f8 ffff f808 0000 3ef8 ffff\n1809 0000 60f8 ffff 3809 0000 ccf8 ffff\n5809 0000 62f9 ffff 7809 0000 b0f9 ffff\n9809 0000 14fa ffff b809 0000 33fa ffff\nd809 0000 65fa ffff f809 0000 a2fa ffff\n180a 0000 27fb ffff 380a 0000 d6fb ffff\n580a 0000 74fc ffff 780a 0000 3cfd ffff\n980a 0000 67fd ffff b80a 0000 92fd ffff\nd80a 0000 85fe ffff 000b 0000 58ff ffff\n200b 0000 c8ff ffff 680b 0000 0000 0000\n1400 0000 0000 0000 017a 5200 0178 1001\n1b0c 0708 9001 0710 1400 0000 1c00 0000\n20ee ffff 2a00 0000 0000 0000 0000 0000\n1400 0000 0000 0000 017a 5200 0178 1001\n1b0c 0708 9001 0000 2400 0000 1c00 0000\n30ed ffff b000 0000 000e 1046 0e18 4a0f\n0b77 0880 003f 1a3b 2a33 2422 0000 0000\n1c00 0000 4400 0000 beee ffff 1b00 0000\n0041 0e10 8602 430d 0656 0c07 0800 0000\n1c00 0000 6400 0000 b9ee ffff 3300 0000\n0041 0e10 8602 430d 066e 0c07 0800 0000\n1c00 0000 8400 0000 ccee ffff 3f00 0000\n0041 0e10 8602 430d 067a 0c07 0800 0000\n1c00 0000 a400 0000 ebee ffff 1700 0000\n0041 0e10 8602 430d 0652 0c07 0800 0000\n1c00 0000 c400 0000 e2ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 e400 0000 dcee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 0401 0000 d6ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 2401 0000 d0ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 4401 0000 caee ffff 1700 0000\n0041 0e10 8602 430d 0652 0c07 0800 0000\n1c00 0000 6401 0000 c1ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 8401 0000 bbee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 a401 0000 b5ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 c401 0000 afee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 e401 0000 a9ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 0402 0000 a3ee ffff 2200 0000\n0041 0e10 8602 430d 065d 0c07 0800 0000\n1c00 0000 2402 0000 a5ee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 4402 0000 acee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 6402 0000 b3ee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 8402 0000 baee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 a402 0000 c1ee ffff 2200 0000\n0041 0e10 8602 430d 065d 0c07 0800 0000\n1c00 0000 c402 0000 c3ee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 e402 0000 caee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 0403 0000 d1ee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 2403 0000 d8ee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 4403 0000 dfee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 6403 0000 e6ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 8403 0000 e0ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 a403 0000 daee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 c403 0000 d4ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 e403 0000 ceee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 0404 0000 c8ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 2404 0000 c2ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 4404 0000 bcee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 6404 0000 b6ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 8404 0000 b0ee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 a404 0000 aaee ffff 1a00 0000\n0041 0e10 8602 430d 0655 0c07 0800 0000\n1c00 0000 c404 0000 a4ee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 e404 0000 abee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 0405 0000 b2ee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 2405 0000 b9ee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 4405 0000 c0ee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 6405 0000 c7ee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 8405 0000 ceee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 a405 0000 d5ee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 c405 0000 dcee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 e405 0000 e3ee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 0406 0000 eaee ffff 2700 0000\n0041 0e10 8602 430d 0662 0c07 0800 0000\n1c00 0000 2406 0000 f1ee ffff 5200 0000\n0041 0e10 8602 430d 0602 4d0c 0708 0000\n1c00 0000 4406 0000 23ef ffff 2500 0000\n0041 0e10 8602 430d 0660 0c07 0800 0000\n1c00 0000 6406 0000 28ef ffff 1f00 0000\n0041 0e10 8602 430d 065a 0c07 0800 0000\n1c00 0000 8406 0000 27ef ffff 1700 0000\n0041 0e10 8602 430d 0652 0c07 0800 0000\n1c00 0000 a406 0000 1eef ffff 2200 0000\n0041 0e10 8602 430d 065d 0c07 0800 0000\n1c00 0000 c406 0000 20ef ffff 6c00 0000\n0041 0e10 8602 430d 0602 670c 0708 0000\n1c00 0000 e406 0000 6cef ffff 9600 0000\n0041 0e10 8602 430d 0602 910c 0708 0000\n1c00 0000 0407 0000 e2ef ffff 4e00 0000\n0041 0e10 8602 430d 0602 490c 0708 0000\n1c00 0000 2407 0000 10f0 ffff 6400 0000\n0041 0e10 8602 430d 0602 5f0c 0708 0000\n1c00 0000 4407 0000 54f0 ffff 1f00 0000\n0041 0e10 8602 430d 065a 0c07 0800 0000\n1c00 0000 6407 0000 53f0 ffff 3200 0000\n0041 0e10 8602 430d 066d 0c07 0800 0000\n1c00 0000 8407 0000 65f0 ffff 3d00 0000\n0041 0e10 8602 430d 0678 0c07 0800 0000\n1c00 0000 a407 0000 82f0 ffff 8500 0000\n0041 0e10 8602 430d 0602 800c 0708 0000\n1c00 0000 c407 0000 e7f0 ffff af00 0000\n0041 0e10 8602 430d 0602 aa0c 0708 0000\n1c00 0000 e407 0000 76f1 ffff 9e00 0000\n0041 0e10 8602 430d 0602 990c 0708 0000\n1c00 0000 0408 0000 f4f1 ffff c800 0000\n0041 0e10 8602 430d 0602 c30c 0708 0000\n1c00 0000 2408 0000 9cf2 ffff 2b00 0000\n0041 0e10 8602 430d 0666 0c07 0800 0000\n1c00 0000 4408 0000 a7f2 ffff 2b00 0000\n0041 0e10 8602 430d 0666 0c07 0800 0000\n2400 0000 6408 0000 b2f2 ffff f300 0000\n0041 0e10 8602 430d 0645 8303 02e9 0c07\n0800 0000 0000 0000 1c00 0000 8c08 0000\n7df3 ffff c500 0000 0041 0e10 8602 430d\n0602 c00c 0708 0000 4400 0000 ac08 0000\n30f4 ffff 6500 0000 0042 0e10 8f02 420e\n188e 0345 0e20 8d04 420e 288c 0548 0e30\n8606 480e 3883 074d 0e40 720e 3841 0e30\n410e 2842 0e20 420e 1842 0e10 420e 0800\n1400 0000 f408 0000 58f4 ffff 0200 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n6007 4000 0000 0000 4007 4000 0000 0000\n0000 0000 0000 0000 0100 0000 0000 0000\n0100 0000 0000 0000 0c00 0000 0000 0000\na805 4000 0000 0000 0d00 0000 0000 0000\nd415 4000 0000 0000 1900 0000 0000 0000\n102e 6000 0000 0000 1b00 0000 0000 0000\n0800 0000 0000 0000 1a00 0000 0000 0000\n182e 6000 0000 0000 1c00 0000 0000 0000\n0800 0000 0000 0000 f5fe ff6f 0000 0000\n9802 4000 0000 0000 0500 0000 0000 0000\nd803 4000 0000 0000 0600 0000 0000 0000\nb802 4000 0000 0000 0a00 0000 0000 0000\n7c00 0000 0000 0000 0b00 0000 0000 0000\n1800 0000 0000 0000 1500 0000 0000 0000\n0000 0000 0000 0000 0300 0000 0000 0000\n0030 6000 0000 0000 0200 0000 0000 0000\nf000 0000 0000 0000 1400 0000 0000 0000\n0700 0000 0000 0000 1700 0000 0000 0000\nb804 4000 0000 0000 0700 0000 0000 0000\na004 4000 0000 0000 0800 0000 0000 0000\n1800 0000 0000 0000 0900 0000 0000 0000\n1800 0000 0000 0000 feff ff6f 0000 0000\n7004 4000 0000 0000 ffff ff6f 0000 0000\n0100 0000 0000 0000 f0ff ff6f 0000 0000\n5404 4000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n282e 6000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 e605 4000 0000 0000\nf605 4000 0000 0000 0606 4000 0000 0000\n1606 4000 0000 0000 2606 4000 0000 0000\n3606 4000 0000 0000 4606 4000 0000 0000\n5606 4000 0000 0000 6606 4000 0000 0000\n7606 4000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 4743 433a 2028 5562\n756e 7475 2035 2e34 2e30 2d36 7562 756e\n7475 317e 3136 2e30 342e 3529 2035 2e34\n2e30 2032 3031 3630 3630 3900 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 0100\n3802 4000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 0200 5402 4000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 0300\n7402 4000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 0400 9802 4000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 0500\nb802 4000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 0600 d803 4000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 0700\n5404 4000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 0800 7004 4000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 0900\na004 4000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 0a00 b804 4000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 0b00\na805 4000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 0c00 d005 4000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 0d00\n8006 4000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 0e00 9006 4000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 0f00\nd415 4000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 1000 e015 4000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 1100\n0816 4000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 1200 5018 4000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 1300\n102e 6000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 1400 182e 6000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 1500\n202e 6000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 1600 282e 6000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 1700\nf82f 6000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 1800 0030 6000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 1900\n6830 6000 0000 0000 0000 0000 0000 0000\n0000 0000 0300 1a00 7830 6000 0000 0000\n0000 0000 0000 0000 0000 0000 0300 1b00\n0000 0000 0000 0000 0000 0000 0000 0000\n0100 0000 0400 f1ff 0000 0000 0000 0000\n0000 0000 0000 0000 0c00 0000 0100 1500\n202e 6000 0000 0000 0000 0000 0000 0000\n1900 0000 0200 0e00 c006 4000 0000 0000\n0000 0000 0000 0000 1b00 0000 0200 0e00\n0007 4000 0000 0000 0000 0000 0000 0000\n2e00 0000 0200 0e00 4007 4000 0000 0000\n0000 0000 0000 0000 4400 0000 0100 1a00\n7830 6000 0000 0000 0100 0000 0000 0000\n5300 0000 0100 1400 182e 6000 0000 0000\n0000 0000 0000 0000 7a00 0000 0200 0e00\n6007 4000 0000 0000 0000 0000 0000 0000\n8600 0000 0100 1300 102e 6000 0000 0000\n0000 0000 0000 0000 a500 0000 0400 f1ff\n0000 0000 0000 0000 0000 0000 0000 0000\n0100 0000 0400 f1ff 0000 0000 0000 0000\n0000 0000 0000 0000 af00 0000 0100 1200\n8821 4000 0000 0000 0000 0000 0000 0000\nbd00 0000 0100 1500 202e 6000 0000 0000\n0000 0000 0000 0000 0000 0000 0400 f1ff\n0000 0000 0000 0000 0000 0000 0000 0000\nc900 0000 0000 1300 182e 6000 0000 0000\n0000 0000 0000 0000 da00 0000 0100 1600\n282e 6000 0000 0000 0000 0000 0000 0000\ne300 0000 0000 1300 102e 6000 0000 0000\n0000 0000 0000 0000 f600 0000 0000 1100\n0816 4000 0000 0000 0000 0000 0000 0000\n0901 0000 0100 1800 0030 6000 0000 0000\n0000 0000 0000 0000 1f01 0000 1200 0e00\nd015 4000 0000 0000 0200 0000 0000 0000\n2f01 0000 1200 0e00 af0c 4000 0000 0000\n2700 0000 0000 0000 4b03 0000 1200 0e00\n6a0f 4000 0000 0000 4e00 0000 0000 0000\n3801 0000 1200 0000 0000 0000 0000 0000\n0000 0000 0000 0000 4a01 0000 1200 0e00\nb80b 4000 0000 0000 1a00 0000 0000 0000\ned02 0000 1200 0e00 c308 4000 0000 0000\n1a00 0000 0000 0000 ec02 0000 1200 0e00\n7808 4000 0000 0000 1a00 0000 0000 0000\n5301 0000 2000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 6f01 0000 1200 0e00\n100e 4000 0000 0000 1f00 0000 0000 0000\n4202 0000 2000 1900 6830 6000 0000 0000\n0000 0000 0000 0000 9f02 0000 1200 0e00\ndd08 4000 0000 0000 1a00 0000 0000 0000\n7201 0000 1200 0e00 460e 4000 0000 0000\n2200 0000 0000 0000 cb01 0000 1200 0e00\na908 4000 0000 0000 1a00 0000 0000 0000\n7501 0000 1200 0e00 de11 4000 0000 0000\n9e00 0000 0000 0000 a902 0000 1200 0e00\n7409 4000 0000 0000 2700 0000 0000 0000\n7d01 0000 1200 0e00 ce0a 4000 0000 0000\n1a00 0000 0000 0000 9502 0000 1200 0e00\n4408 4000 0000 0000 1a00 0000 0000 0000\n8601 0000 1200 0e00 e80a 4000 0000 0000\n1a00 0000 0000 0000 8e01 0000 1000 1900\n7830 6000 0000 0000 0000 0000 0000 0000\n9501 0000 1200 0e00 9e0b 4000 0000 0000\n1a00 0000 0000 0000 9f01 0000 1200 0e00\n680e 4000 0000 0000 6c00 0000 0000 0000\n2901 0000 1200 0f00 d415 4000 0000 0000\n0000 0000 0000 0000 a201 0000 1200 0e00\nd407 4000 0000 0000 3f00 0000 0000 0000\nac01 0000 1200 0e00 130c 4000 0000 0000\n2700 0000 0000 0000 b501 0000 1200 0e00\n240d 4000 0000 0000 2700 0000 0000 0000\nc001 0000 1200 0e00 ec0b 4000 0000 0000\n2700 0000 0000 0000 8701 0000 1200 0e00\n2a08 4000 0000 0000 1a00 0000 0000 0000\nca01 0000 1200 0e00 6a0b 4000 0000 0000\n1a00 0000 0000 0000 d101 0000 1200 0e00\n880c 4000 0000 0000 2700 0000 0000 0000\ndb01 0000 1200 0000 0000 0000 0000 0000\n0000 0000 0000 0000 ef01 0000 1200 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n4b01 0000 1200 0e00 f708 4000 0000 0000\n1a00 0000 0000 0000 0302 0000 1200 0e00\n9a13 4000 0000 0000 f300 0000 0000 0000\nd201 0000 1200 0e00 c209 4000 0000 0000\n2700 0000 0000 0000 0c02 0000 1200 0e00\n610c 4000 0000 0000 2700 0000 0000 0000\n1702 0000 1200 0e00 6d10 4000 0000 0000\n3d00 0000 0000 0000 1b02 0000 1200 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n3a02 0000 1200 0e00 eb0d 4000 0000 0000\n2500 0000 0000 0000 4002 0000 1000 1900\n6830 6000 0000 0000 0000 0000 0000 0000\nf502 0000 1200 0e00 800a 4000 0000 0000\n2700 0000 0000 0000 d301 0000 1200 0e00\n320a 4000 0000 0000 2700 0000 0000 0000\n4d02 0000 1200 0e00 fd0c 4000 0000 0000\n2700 0000 0000 0000 5602 0000 1200 0e00\n3b10 4000 0000 0000 3200 0000 0000 0000\n5a02 0000 2000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 e202 0000 1200 0e00\n5e08 4000 0000 0000 1a00 0000 0000 0000\n6902 0000 1102 1900 7030 6000 0000 0000\n0000 0000 0000 0000 7602 0000 1200 0e00\nd40e 4000 0000 0000 9600 0000 0000 0000\n0d02 0000 1200 0e00 9b09 4000 0000 0000\n2700 0000 0000 0000 ad01 0000 1200 0e00\n4d09 4000 0000 0000 2700 0000 0000 0000\nd103 0000 1200 0e00 0b0a 4000 0000 0000\n2700 0000 0000 0000 7e01 0000 1200 0e00\n1308 4000 0000 0000 1700 0000 0000 0000\n7902 0000 1100 1000 e015 4000 0000 0000\n0400 0000 0000 0000 8802 0000 1200 0e00\naa10 4000 0000 0000 8500 0000 0000 0000\n8c02 0000 1200 0e00 500b 4000 0000 0000\n1a00 0000 0000 0000 9402 0000 1200 0e00\n020b 4000 0000 0000 1a00 0000 0000 0000\n9d02 0000 1200 0e00 d20b 4000 0000 0000\n1a00 0000 0000 0000 a802 0000 1200 0e00\n3a0c 4000 0000 0000 2700 0000 0000 0000\nb202 0000 1200 0e00 6015 4000 0000 0000\n6500 0000 0000 0000 c202 0000 1200 0000\n0000 0000 0000 0000 0000 0000 0000 0000\nd602 0000 1200 0e00 2f11 4000 0000 0000\naf00 0000 0000 0000 da02 0000 1200 0e00\n1c10 4000 0000 0000 1f00 0000 0000 0000\nd500 0000 1000 1a00 8030 6000 0000 0000\n0000 0000 0000 0000 e102 0000 1200 0e00\n1c0b 4000 0000 0000 1a00 0000 0000 0000\n4602 0000 1200 0e00 9006 4000 0000 0000\n2a00 0000 0000 0000 9e02 0000 1200 0e00\n1109 4000 0000 0000 1a00 0000 0000 0000\neb02 0000 1200 0e00 360b 4000 0000 0000\n1a00 0000 0000 0000 f402 0000 1200 0e00\n4b0d 4000 0000 0000 2700 0000 0000 0000\nc101 0000 1200 0e00 2b09 4000 0000 0000\n2200 0000 0000 0000 fe02 0000 1200 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n1303 0000 1000 1a00 7830 6000 0000 0000\n0000 0000 0000 0000 1f03 0000 1200 0e00\n8d14 4000 0000 0000 c500 0000 0000 0000\n2403 0000 1200 0e00 a107 4000 0000 0000\n3300 0000 0000 0000 2d03 0000 1200 0e00\n8607 4000 0000 0000 1b00 0000 0000 0000\n3403 0000 1200 0000 0000 0000 0000 0000\n0000 0000 0000 0000 4803 0000 1200 0e00\n4413 4000 0000 0000 2b00 0000 0000 0000\n4f03 0000 2000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 6303 0000 1200 0e00\n840b 4000 0000 0000 1a00 0000 0000 0000\n6b03 0000 1200 0e00 6f13 4000 0000 0000\n2b00 0000 0000 0000 dc02 0000 1200 0e00\nb80f 4000 0000 0000 6400 0000 0000 0000\n7303 0000 1200 0e00 a70a 4000 0000 0000\n2700 0000 0000 0000 7203 0000 1200 0e00\n720d 4000 0000 0000 2700 0000 0000 0000\n7e03 0000 1200 0000 0000 0000 0000 0000\n0000 0000 0000 0000 9003 0000 1102 1900\n7830 6000 0000 0000 0000 0000 0000 0000\n7403 0000 1200 0e00 590a 4000 0000 0000\n2700 0000 0000 0000 9c03 0000 1200 0e00\n7c12 4000 0000 0000 c800 0000 0000 0000\na403 0000 2000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 8d02 0000 1200 0e00\n9208 4000 0000 0000 1700 0000 0000 0000\nbe03 0000 1200 0000 0000 0000 0000 0000\n0000 0000 0000 0000 bc02 0000 1200 0b00\na805 4000 0000 0000 0000 0000 0000 0000\nd003 0000 1200 0e00 d60c 4000 0000 0000\n2700 0000 0000 0000 3c02 0000 1200 0e00\n990d 4000 0000 0000 5200 0000 0000 0000\nd803 0000 1200 0000 0000 0000 0000 0000\n0000 0000 0000 0000 3001 0000 1200 0e00\ne909 4000 0000 0000 2200 0000 0000 0000\nea03 0000 1200 0e00 2f0e 4000 0000 0000\n1700 0000 0000 0000 0063 7274 7374 7566\n662e 6300 5f5f 4a43 525f 4c49 5354 5f5f\n0064 6572 6567 6973 7465 725f 746d 5f63\n6c6f 6e65 7300 5f5f 646f 5f67 6c6f 6261\n6c5f 6474 6f72 735f 6175 7800 636f 6d70\n6c65 7465 642e 3735 3835 005f 5f64 6f5f\n676c 6f62 616c 5f64 746f 7273 5f61 7578\n5f66 696e 695f 6172 7261 795f 656e 7472\n7900 6672 616d 655f 6475 6d6d 7900 5f5f\n6672 616d 655f 6475 6d6d 795f 696e 6974\n5f61 7272 6179 5f65 6e74 7279 0065 7865\n6375 7465 2e63 005f 5f46 5241 4d45 5f45\n4e44 5f5f 005f 5f4a 4352 5f45 4e44 5f5f\n005f 5f69 6e69 745f 6172 7261 795f 656e\n6400 5f44 594e 414d 4943 005f 5f69 6e69\n745f 6172 7261 795f 7374 6172 7400 5f5f\n474e 555f 4548 5f46 5241 4d45 5f48 4452\n005f 474c 4f42 414c 5f4f 4646 5345 545f\n5441 424c 455f 005f 5f6c 6962 635f 6373\n755f 6669 6e69 0070 6368 6172 325f 7300\n6672 6565 4040 474c 4942 435f 322e 322e\n3500 7066 6c6f 6174 5f73 005f 4954 4d5f\n6465 7265 6769 7374 6572 544d 436c 6f6e\n6554 6162 6c65 0072 6d00 7273 0063 7030\n6c65 6e32 0070 7563 6861 725f 7300 7075\n696e 745f 7300 5f65 6461 7461 0070 646f\n7562 6c65 5f73 0063 7000 7265 616c 6c6f\n635f 7300 7075 696e 7432 5f73 0070 646f\n7562 6c65 325f 7300 7075 6368 6172 325f\n7300 7069 6e74 5f73 0070 6c6c 6f6e 6732\n5f73 0065 7865 6376 7065 4040 474c 4942\n435f 322e 3131 0070 7269 6e74 6640 4047\n4c49 4243 5f32 2e32 2e35 006d 616b 6561\n7267 7300 7075 6c6c 6f6e 6732 5f73 0072\n7330 005f 5f6c 6962 635f 7374 6172 745f\n6d61 696e 4040 474c 4942 435f 322e 322e\n3500 756e 7365 7400 5f5f 6461 7461 5f73\n7461 7274 0070 6c6f 6e67 325f 7300 6d6b\n3000 5f5f 676d 6f6e 5f73 7461 7274 5f5f\n005f 5f64 736f 5f68 616e 646c 6500 6d76\n005f 494f 5f73 7464 696e 5f75 7365 6400\n6370 3000 7063 6861 725f 7300 7075 6c6f\n6e67 5f73 0070 6c64 6f75 626c 655f 7300\n7075 6c6f 6e67 325f 7300 5f5f 6c69 6263\n5f63 7375 5f69 6e69 7400 6d61 6c6c 6f63\n4040 474c 4942 435f 322e 322e 3500 6d76\n3000 756e 7365 7430 0070 756c 6c6f 6e67\n5f73 0070 6c6c 6f6e 675f 7300 7066 6c6f\n6174 325f 7300 7265 616c 6c6f 6340 4047\n4c49 4243 5f32 2e32 2e35 005f 5f62 7373\n5f73 7461 7274 006d 6169 6e00 6d61 6c6c\n6f63 5f73 0066 7265 655f 7300 7374 7274\n6f6b 4040 474c 4942 435f 322e 322e 3500\n6370 306c 656e 005f 4a76 5f52 6567 6973\n7465 7243 6c61 7373 6573 0070 6c6f 6e67\n5f73 006d 7630 6c65 6e00 706c 646f 7562\n6c65 325f 7300 6578 6974 4040 474c 4942\n435f 322e 322e 3500 5f5f 544d 435f 454e\n445f 5f00 6d76 306c 656e 3200 5f49 544d\n5f72 6567 6973 7465 7254 4d43 6c6f 6e65\n5461 626c 6500 7761 6974 4040 474c 4942\n435f 322e 322e 3500 7069 6e74 325f 7300\n666f 726b 4040 474c 4942 435f 322e 322e\n3500 6d6b 0000 2e73 796d 7461 6200 2e73\n7472 7461 6200 2e73 6873 7472 7461 6200\n2e69 6e74 6572 7000 2e6e 6f74 652e 4142\n492d 7461 6700 2e6e 6f74 652e 676e 752e\n6275 696c 642d 6964 002e 676e 752e 6861\n7368 002e 6479 6e73 796d 002e 6479 6e73\n7472 002e 676e 752e 7665 7273 696f 6e00\n2e67 6e75 2e76 6572 7369 6f6e 5f72 002e\n7265 6c61 2e64 796e 002e 7265 6c61 2e70\n6c74 002e 696e 6974 002e 706c 742e 676f\n7400 2e74 6578 7400 2e66 696e 6900 2e72\n6f64 6174 6100 2e65 685f 6672 616d 655f\n6864 7200 2e65 685f 6672 616d 6500 2e69\n6e69 745f 6172 7261 7900 2e66 696e 695f\n6172 7261 7900 2e6a 6372 002e 6479 6e61\n6d69 6300 2e67 6f74 2e70 6c74 002e 6461\n7461 002e 6273 7300 2e63 6f6d 6d65 6e74\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 0000 0000 0000 0000\n0000 0000 0000 0000 1b00 0000 0100 0000\n0200 0000 0000 0000 3802 4000 0000 0000\n3802 0000 0000 0000 1c00 0000 0000 0000\n0000 0000 0000 0000 0100 0000 0000 0000\n0000 0000 0000 0000 2300 0000 0700 0000\n0200 0000 0000 0000 5402 4000 0000 0000\n5402 0000 0000 0000 2000 0000 0000 0000\n0000 0000 0000 0000 0400 0000 0000 0000\n0000 0000 0000 0000 3100 0000 0700 0000\n0200 0000 0000 0000 7402 4000 0000 0000\n7402 0000 0000 0000 2400 0000 0000 0000\n0000 0000 0000 0000 0400 0000 0000 0000\n0000 0000 0000 0000 4400 0000 f6ff ff6f\n0200 0000 0000 0000 9802 4000 0000 0000\n9802 0000 0000 0000 1c00 0000 0000 0000\n0500 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 4e00 0000 0b00 0000\n0200 0000 0000 0000 b802 4000 0000 0000\nb802 0000 0000 0000 2001 0000 0000 0000\n0600 0000 0100 0000 0800 0000 0000 0000\n1800 0000 0000 0000 5600 0000 0300 0000\n0200 0000 0000 0000 d803 4000 0000 0000\nd803 0000 0000 0000 7c00 0000 0000 0000\n0000 0000 0000 0000 0100 0000 0000 0000\n0000 0000 0000 0000 5e00 0000 ffff ff6f\n0200 0000 0000 0000 5404 4000 0000 0000\n5404 0000 0000 0000 1800 0000 0000 0000\n0500 0000 0000 0000 0200 0000 0000 0000\n0200 0000 0000 0000 6b00 0000 feff ff6f\n0200 0000 0000 0000 7004 4000 0000 0000\n7004 0000 0000 0000 3000 0000 0000 0000\n0600 0000 0100 0000 0800 0000 0000 0000\n0000 0000 0000 0000 7a00 0000 0400 0000\n0200 0000 0000 0000 a004 4000 0000 0000\na004 0000 0000 0000 1800 0000 0000 0000\n0500 0000 0000 0000 0800 0000 0000 0000\n1800 0000 0000 0000 8400 0000 0400 0000\n4200 0000 0000 0000 b804 4000 0000 0000\nb804 0000 0000 0000 f000 0000 0000 0000\n0500 0000 1800 0000 0800 0000 0000 0000\n1800 0000 0000 0000 8e00 0000 0100 0000\n0600 0000 0000 0000 a805 4000 0000 0000\na805 0000 0000 0000 1a00 0000 0000 0000\n0000 0000 0000 0000 0400 0000 0000 0000\n0000 0000 0000 0000 8900 0000 0100 0000\n0600 0000 0000 0000 d005 4000 0000 0000\nd005 0000 0000 0000 b000 0000 0000 0000\n0000 0000 0000 0000 1000 0000 0000 0000\n1000 0000 0000 0000 9400 0000 0100 0000\n0600 0000 0000 0000 8006 4000 0000 0000\n8006 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 9d00 0000 0100 0000\n0600 0000 0000 0000 9006 4000 0000 0000\n9006 0000 0000 0000 420f 0000 0000 0000\n0000 0000 0000 0000 1000 0000 0000 0000\n0000 0000 0000 0000 a300 0000 0100 0000\n0600 0000 0000 0000 d415 4000 0000 0000\nd415 0000 0000 0000 0900 0000 0000 0000\n0000 0000 0000 0000 0400 0000 0000 0000\n0000 0000 0000 0000 a900 0000 0100 0000\n0200 0000 0000 0000 e015 4000 0000 0000\ne015 0000 0000 0000 2500 0000 0000 0000\n0000 0000 0000 0000 0400 0000 0000 0000\n0000 0000 0000 0000 b100 0000 0100 0000\n0200 0000 0000 0000 0816 4000 0000 0000\n0816 0000 0000 0000 4402 0000 0000 0000\n0000 0000 0000 0000 0400 0000 0000 0000\n0000 0000 0000 0000 bf00 0000 0100 0000\n0200 0000 0000 0000 5018 4000 0000 0000\n5018 0000 0000 0000 3c09 0000 0000 0000\n0000 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 c900 0000 0e00 0000\n0300 0000 0000 0000 102e 6000 0000 0000\n102e 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 d500 0000 0f00 0000\n0300 0000 0000 0000 182e 6000 0000 0000\n182e 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 e100 0000 0100 0000\n0300 0000 0000 0000 202e 6000 0000 0000\n202e 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 e600 0000 0600 0000\n0300 0000 0000 0000 282e 6000 0000 0000\n282e 0000 0000 0000 d001 0000 0000 0000\n0600 0000 0000 0000 0800 0000 0000 0000\n1000 0000 0000 0000 9800 0000 0100 0000\n0300 0000 0000 0000 f82f 6000 0000 0000\nf82f 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 0800 0000 0000 0000\n0800 0000 0000 0000 ef00 0000 0100 0000\n0300 0000 0000 0000 0030 6000 0000 0000\n0030 0000 0000 0000 6800 0000 0000 0000\n0000 0000 0000 0000 0800 0000 0000 0000\n0800 0000 0000 0000 f800 0000 0100 0000\n0300 0000 0000 0000 6830 6000 0000 0000\n6830 0000 0000 0000 1000 0000 0000 0000\n0000 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 fe00 0000 0800 0000\n0300 0000 0000 0000 7830 6000 0000 0000\n7830 0000 0000 0000 0800 0000 0000 0000\n0000 0000 0000 0000 0100 0000 0000 0000\n0000 0000 0000 0000 0301 0000 0100 0000\n3000 0000 0000 0000 0000 0000 0000 0000\n7830 0000 0000 0000 3400 0000 0000 0000\n0000 0000 0000 0000 0100 0000 0000 0000\n0100 0000 0000 0000 1100 0000 0300 0000\n0000 0000 0000 0000 0000 0000 0000 0000\nd541 0000 0000 0000 0c01 0000 0000 0000\n0000 0000 0000 0000 0100 0000 0000 0000\n0000 0000 0000 0000 0100 0000 0200 0000\n0000 0000 0000 0000 0000 0000 0000 0000\nb030 0000 0000 0000 380d 0000 0000 0000\n1e00 0000 2f00 0000 0800 0000 0000 0000\n1800 0000 0000 0000 0900 0000 0300 0000\n0000 0000 0000 0000 0000 0000 0000 0000\ne83d 0000 0000 0000 ed03 0000 0000 0000\n0000 0000 0000 0000 0100 0000 0000 0000\n0000 0000 0000 0000 ",
-			"file": "Lab1/execute",
-			"file_size": 19112,
-			"file_write_time": 131638694468529890,
-			"settings":
-			{
-				"buffer_size": 47780,
-				"encoding": "Hexadecimal",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "#ifndef MISC_INCL\n#define MISC_INCL\n\n/* memory functions */\n\ninline void free_s(void *d)\n{\n\tfree(d);\n};\n\ninline void* malloc_s(int sz)\n{\n\tvoid *d;\n\n\tif(!(d = malloc(sz))) { exit(EXIT_FAILURE); }\t\n\treturn d;\n};\n\ninline void* realloc_s(void *d, int sz)\n{ \n\tif(!(d = realloc(d, sz))) { exit(EXIT_FAILURE); }\n\treturn d;\n};\n\n/* functions Type* <typename>_s(int N) */\n\ninline uchar* uchar_s(int N)\n{\n\treturn (uchar *) malloc_s(N * sizeof(uchar));\n};\n\ninline uint* uint_s(int N)\n{\n\treturn (uint *) malloc_s(N * sizeof(uint));\n};\n\ninline ulong* ulong_s(int N)\n{\n\treturn (ulong *) malloc_s(N * sizeof(ulong));\n};\n\ninline ullong* ullong_s(int N)\n{\n\treturn (ullong *) malloc_s(N * sizeof(ullong));\n};\n\ninline llong* llong_s(int N)\n{\n\treturn (llong *) malloc_s(N * sizeof(llong));\n};\n\ninline char* char_s(int N)\n{\n\treturn (char *) malloc_s(N * sizeof(char));\n};\n\ninline int* int_s(int N)\n{ \n\treturn (int *) malloc_s(N * sizeof(int));\n};\n\ninline long* long_s(int N)\n{ \n\treturn (long *) malloc_s(N * sizeof(long));\n};\n\ninline double* double_s(int N)\n{ \n\treturn (double *) malloc_s(N * sizeof(double));\n};\n\ninline float* float_s(int N)\n{ \n\treturn (float *) malloc_s(N * sizeof(float));\n};\n\ninline ldouble* ldouble_s(int N)\n{\n\treturn (ldouble *) malloc_s(N * sizeof(ldouble));\n};\n\n/* functions Type* <typename>2_s(Type* d, int N) */\n\ninline uchar* uchar2_s(uchar *d, int N)\n{\n\treturn (uchar *) realloc_s(d, N * sizeof(uchar));\n};\n\ninline uint* uint2_s(uint *d, int N)\n{\n\treturn (uint *) realloc_s(d, N * sizeof(uint));\n};\n\ninline ulong* ulong2_s(ulong *d, int N)\n{\n\treturn (ulong *) realloc_s(d, N * sizeof(ulong));\n};\n\ninline ullong* ullong2_s(ullong *d, int N)\n{\n\treturn (ullong *) realloc_s(d, N * sizeof(ullong));\n};\n\ninline llong* llong2_s(llong *d, int N)\n{\n\treturn (llong *) realloc_s(d, N * sizeof(llong));\n};\n\ninline char* char2_s(char *d, int N)\n{\n\treturn (char *) realloc_s(d, N * sizeof(char));\n};\n\ninline int* int2_s(int *d, int N)\n{ \n\treturn (int *) realloc_s(d, N * sizeof(int));\n};\n\ninline long* long2_s(long *d, int N)\n{ \n\treturn (long *) realloc_s(d, N * sizeof(long));\n};\n\ninline double* double2_s(double *d, int N)\n{ \n\treturn (double *) realloc_s(d, N * sizeof(double));\n};\n\ninline float* float2_s(float *d, int N)\n{ \n\treturn (float *) realloc_s(d, N * sizeof(float));\n};\n\ninline ldouble* ldouble2_s(ldouble *d, int N)\n{\n\treturn (ldouble *) realloc_s(d, N * sizeof(ldouble));\n};\n\n/* functions Type** p<typename>_s(int N) */\n\ninline uchar** puchar_s(int N)\n{\n\treturn (uchar **) malloc_s(N * sizeof(uchar *));\n};\n\ninline uint** puint_s(int N)\n{\n\treturn (uint **) malloc_s(N * sizeof(uint *));\n};\n\ninline ulong** pulong_s(int N)\n{\n\treturn (ulong **) malloc_s(N * sizeof(ulong *));\n};\n\ninline ullong** pullong_s(int N)\n{\n\treturn (ullong **) malloc_s(N * sizeof(ullong *));\n};\n\ninline llong** pllong_s(int N)\n{\n\treturn (llong **) malloc_s(N * sizeof(llong *));\n};\n\ninline char** pchar_s(int N)\n{\n\treturn (char **) malloc_s(N * sizeof(char *));\n};\n\ninline int** pint_s(int N)\n{ \n\treturn (int **) malloc_s(N * sizeof(int *));\n};\n\ninline long** plong_s(int N)\n{ \n\treturn (long **) malloc_s(N * sizeof(long *));\n};\n\ninline double** pdouble_s(int N)\n{ \n\treturn (double **) malloc_s(N * sizeof(double *));\n};\n\ninline float** pfloat_s(int N)\n{ \n\treturn (float **) malloc_s(N * sizeof(float *));\n};\n\ninline ldouble** pldouble_s(int N)\n{\n\treturn (ldouble **) malloc_s(N * sizeof(ldouble *));\n};\n\n/* functions Type** p<typename>2_s(Type** d, int N) */\n\ninline uchar** puchar2_s(uchar **d, int N)\n{\n\treturn (uchar **) realloc_s(d, N * sizeof(uchar *));\n};\n\ninline uint** puint2_s(uint **d, int N)\n{\n\treturn (uint **) realloc_s(d, N * sizeof(uint *));\n};\n\ninline ulong** pulong2_s(ulong **d, int N)\n{\n\treturn (ulong **) realloc_s(d, N * sizeof(ulong *));\n};\n\ninline ullong** pullong2_s(ullong **d, int N)\n{\n\treturn (ullong **) realloc_s(d, N * sizeof(ullong *));\n};\n\ninline llong** pllong2_s(llong **d, int N)\n{\n\treturn (llong **) realloc_s(d, N * sizeof(llong *));\n};\n\ninline char** pchar2_s(char **d, int N)\n{\n\treturn (char **) realloc_s(d, N * sizeof(char *));\n};\n\ninline int** pint2_s(int **d, int N)\n{ \n\treturn (int **) realloc_s(d, N * sizeof(int *));\n};\n\ninline long** plong2_s(long **d, int N)\n{ \n\treturn (long **) realloc_s(d, N * sizeof(long *));\n};\n\ninline double** pdouble2_s(double **d, int N)\n{ \n\treturn (double **) realloc_s(d, N * sizeof(double *));\n};\n\ninline float** pfloat2_s(float **d, int N)\n{ \n\treturn (float **) realloc_s(d, N * sizeof(float *));\n};\n\ninline ldouble** pldouble2_s(ldouble **d, int N)\n{\n\treturn (ldouble **) realloc_s(d, N * sizeof(ldouble *));\n};\n\n/* memory manipulation funcions given size */\n\ninline void* set(void *d, char v, int sz)\n{\n\tchar *_d;\n\n\tif(!d) { exit(EXIT_FAILURE); }\n\t_d = d;\n\twhile(--sz >= 1) { _d[sz] = v; }\n\treturn _d;\n};\n\ninline void* unset(void *d, int sz)\n{\n\treturn set(d, nullptr, sz);\n};\n\ninline void* rm(void *d)\n{\n\tfree_s(d);\n\treturn nullptr;\n};\n\ninline void* mk(int sz)\n{\n\treturn malloc_s(sz * sizeof(char));\n};\n\ninline void* rs(void *d, int sz)\n{\n\treturn realloc_s(d, sz * sizeof(char));\n};\n\ninline void* cp(void *lhs, const void *rhs, int sz)\n{\n\tchar *_lhs;\n\tconst char *_rhs;\n\n\tif(!lhs || !rhs) { exit(EXIT_FAILURE); }\n\t_lhs = lhs; _rhs = rhs;\n\twhile(--sz >= 1) { _lhs[sz] = _rhs[sz]; }\t\n\treturn _lhs; \n};\n\ninline void* mv(void *lhs, void **prhs, int sz)\n{\n\tchar *_lhs, *_rhs;\n\n\tif(!lhs || !prhs || !*prhs ) { exit(EXIT_FAILURE); }\n\t _lhs = lhs; _rhs = *prhs;\n\twhile(--sz >= 1) { _lhs[sz] = _rhs[sz]; _rhs[sz] = nullptr; }\n\t*prhs = _rhs;\t\n\treturn _lhs;\n};\n\ninline int len(const void *d)\n{\n\tint sz;\n\tconst char *_d;\n\n\tif(!d) { exit(EXIT_FAILURE); }\n\t_d = d;\n\tfor(sz = 0; _d[sz]; ++sz) { /* do nothing */ }\n\treturn sz - 1;\n};\n\n/* memory manipulation funcions given null termination */\n\ninline void* set0(void *d, char v)\n{\n\tint sz;\n\tchar *_d;\n\n\tif(!d) { exit(EXIT_FAILURE); }\n\t_d = d;\n\tfor(sz = 0; _d[sz]; --sz) { _d[sz] = v; }\n\treturn _d;\n};\n\ninline void* unset0(void *d)\n{\n\treturn set0(d, nullptr);\n};\n\ninline void* mk0(int sz)\n{\n\tchar *d;\n\n\td = malloc_s((sz + 1) * sizeof(char));\n\td[sz] = nullchr;\n\treturn d;\n};\n\ninline void* rs0(void *d, int sz)\n{\n\tchar *_d;\n\n\t_d = realloc_s(d, (sz + 1) * sizeof(char));\n\t_d[sz] = nullchr;\n\treturn _d;\n};\n\ninline void* cp0(void *lhs, const void *rhs)\n{\n\tint sz;\n\tchar *_lhs;\n\tconst char *_rhs;\n\n\tif(!lhs || !rhs) { exit(EXIT_FAILURE); }\n\t_lhs = lhs; _rhs = rhs;\n\tfor(sz = 0; _lhs[sz] && (_lhs[sz] = _rhs[sz]); ++sz) { /* do nothing */ }\t\n\treturn _lhs;\n};\n\ninline void* mv0(void *lhs, void **prhs)\n{\n\tint sz;\n\tchar *_lhs, *_rhs;\n\n\tif(!lhs || !prhs || !*prhs ) { exit(EXIT_FAILURE); }\n\t _lhs = lhs; _rhs = *prhs;\n\tfor(sz = 0; _lhs[sz] && (_lhs[sz] = _rhs[sz]); ++sz) { _rhs[sz] = nullptr; }\n\t*prhs = _rhs;\n\treturn _lhs;\n};\n\n/* memory manipulation funcions given null termination and rhs ensure size */\n\ninline void* cp0len2(void *lhs, const void *rhs, int *pN)\n{\n\tint sz, _N;\n\tchar *_lhs;\n\tconst char *_rhs;\n\n\tif(!rhs) { exit(EXIT_FAILURE); }\n\t_N = len(rhs) + 1; _lhs = rs(lhs, _N); _rhs = rhs;\n\tfor(sz = 0; sz < _N; ++sz) { _lhs[sz] = _rhs[sz]; }\n\tif(pN) { *pN = _N; }\t\n\treturn _lhs;\n}\n\ninline void* mv0len2(void *lhs, void **prhs, int *pN)\n{\n\tint sz, _N;\n\tchar *_lhs, *_rhs;\n\n\tif(!prhs || !*prhs ) { exit(EXIT_FAILURE); }\n\t_rhs = *prhs; _N = len(_rhs) + 1; _lhs = rs(lhs, _N);\n\tfor(sz = 0; sz < _N; ++sz) { _lhs[sz] = _rhs[sz]; _rhs[sz] = nullptr; }\n\tif(pN) { *pN = _N; }\n\t*prhs = _rhs;\n\treturn _lhs;\n}\n\n/* memory manipulation funcions given null termination and rhs ensure size and size return */\n\ninline void* cp0len(void *lhs, const void *rhs)\n{\n\tcp0len2(lhs, rhs, nullptr);\n};\n\ninline void* mv0len(void *lhs, void **prhs)\n{\n\tmv0len2(lhs, prhs, nullptr);\n};\n\n#endif",
 			"file": "Lab1/misc.incl",
-			"file_size": 8078,
-			"file_write_time": 131638687046640439,
 			"settings":
 			{
-				"buffer_size": 7660,
+				"buffer_size": 10288,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "NAME ?= ex5\nTEST_IN := \nCXX ?= g++\nCOMPILE_FLAGS = -std=c99 -pedantic -Wall -Wextra -g\n\n.PHONY: all clean\n\nall: main-build\n\nmain-build:\n\t$(CXX) -o $(NAME) $(NAME).c $(COMPILE_FLAGS)\n\nclean:\n\trm -f ./$(NAME).c ./$(NAME)",
-			"file": "Lab1/Makefile",
-			"file_size": 231,
-			"file_write_time": 131638659149022208,
+			"file": "Lab1/duplicates.c",
 			"settings":
 			{
-				"buffer_size": 218,
+				"buffer_size": 5454,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "args_t args;\n\tint n, j, i, SP;\n\targs.N = args._N = 0; args.d = nullptr; args._d = nullptr;\n\tif(!src || !*src) { return args; }\n\targs._d = cp0len2(nullptr, src, &args._N);\n\tfor(i = 0; i < args._N - 1; ++i)\n\t{\n\t\twhile(isspace(src[i++])) { args._d[i - 1] = nullchr; }\n\t\t++args.N;\n\t}\n\targs.d = pchar_s(args.N + 1);\n\tfor(i = n = 0; i < args._N; ++i)\n\t{\n\t\twhile(!args._d[i++]) { j = i; }\n\t\targs.d[n++] = &args._d[j];\n\t}\n\targs.d[args.N] = nullptr;\n\treturn args;\n\n\n\targs_t args;\n\tint n, j, i, SP;\n\targs.N = args._N = 0; args.d = nullptr; args._d = nullptr;\n\tif(!src || !*src) { return args; }\n\targs._d = cp0len2(nullptr, src, &args._N);\n\n\tfor(i = 0; i < args._N - 1; ++i)\n\t{\n\t\twhile(isspace(src[i++])) { args._d[i - 1] = nullchr; }\n\t\t++args.N;\n\t}\n\targs.d = pchar_s(args.N + 1);\n\tfor(i = n = 0; i < args._N; ++i)\n\t{\n\t\twhile(!args._d[i++]) { j = i; }\n\t\targs.d[n++] = &args._d[j];\n\t}\n\targs.d[args.N] = nullptr;\n\treturn args;",
+			"file": "Lab1/execute.c",
 			"settings":
 			{
-				"buffer_size": 913,
+				"buffer_size": 1222,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <unistd.h>\n#include <sys/wait.h>\n\nint main (int argc, char *argv[]) {\n  int fd[2], status;\n  char msg[256];\n\n  if (pipe(fd) < 0) {\n    fprintf (stderr, \"Could not make pipe\\n\");\n    return (EXIT_FAILURE);\n  }\n\n  if (fork() != 0) {\n    /* Parent process gets here */\n    close(fd[0]);  /* fd[0] is used for reading */\n    sprintf (msg, \"Hello world!\\n\");\n    write (fd[1], msg, 256); /* fd[1] is used for writing */\n  } else {\n    /* Child process gets here */\n    close(fd[1]);\n    read (fd[0], msg, 256);\n    printf (\"%s\", msg);\n  }\n\n  waitpid(-1, &status, 0);\n\n  return EXIT_SUCCESS;\n}\n\nif(!cpid)\n    {\n     \n      close(fd0[0]);\n      K++;\n      \n    }\n    else\n    {\n      close(fd0[1]);\n      \n      printf(RING_MSG_DD, pid, K);\n    }",
-			"file": "Lab1/_local/pipe.c",
-			"file_size": 656,
-			"file_write_time": 131638951337621974,
+			"file": "Lab1/ring.c",
 			"settings":
 			{
-				"buffer_size": 807,
+				"buffer_size": 2260,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lab2/_local/demo.c",
+			"settings":
+			{
+				"buffer_size": 2086,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "while(true)\n\t{\n\n\t\tif(K < N) {\n\t\t\tif(ERROR(pipe(fd)))\n\t\t\t{\n\t\t\t\tprintf(RING_PIPE_ERROR_D, pid);\n\t\t\t\texit(EXIT_FAILURE);\n\t\t\t}\n\t\t\tfork();\n\t\t\tpid = getpid();\n\t\t}\n\t\tif(K > RING_LIMIT_K){ close(fd[0]); close(fd[1]); return EXIT_SUCCESS; }\n\t\tprintf(RING_MSG_DD, pid, K++);\n\t\twrite(fd[1], &K, 1);\n\t\tread(fd[0], &K, 0);\n\t}",
+			"file": "Lab1/_local/files.c",
 			"settings":
 			{
-				"buffer_size": 312,
+				"buffer_size": 1007,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Lab1/_local/fcntl.c",
+			"settings":
+			{
+				"buffer_size": 895,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Lab1/_local/stat.c",
+			"settings":
+			{
+				"buffer_size": 953,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Lab1/_local/stdio.c",
+			"settings":
+			{
+				"buffer_size": 541,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "void printmem(const void *mem, int sz)\n{\n\tprintf(\"%*.s\\n\", sz, (const char *)mem);\n}\n\nvoid printmem0(const void *mem)\n{\n\tprintf(\"%s\\n\", (const char *)mem);\n}\n\nvoid printstat(const struct stat file)\n{\n\tprintf (\"{\\n  st_dev: %d,\\n  st_ino: %d,\\n  st_mode: %d,\\n  st_nlink: %d,\\n  st_uid: %d,\\n  st_gid: = %d,\\n  st_size: %d,\\n  st_atime: %d,\\n  st_mtime: %d,\\n}\\n\", \n\t\t\t(int)file.st_dev, (int)file.st_ino, (int)file.st_mode, (int)file.st_nlink, (int)file.st_uid, (int)file.st_gid, (int)file.st_size,\n\t\t\t(int)file.st_atime, (int)file.st_mtime);\n}\n\nvoid printdirent(const struct dirent dir)\n{\n\tprintf(\"{\\n  d_ino: %d,\\n  d_off: %d,\\n  d_reclen: %d,\\n  d_type: %d,\\n  d_name: %s,\\n}\\n\",\n\t\t(int)dir.d_ino, (int)dir.d_off, (int)dir.d_reclen, (int)dir.d_type, dir.d_name);\n}",
+			"settings":
+			{
+				"buffer_size": 766,
 				"line_ending": "Windows"
 			}
 		}
@@ -558,7 +593,7 @@
 				"Set Syntax: C++"
 			]
 		],
-		"width": 662.0
+		"width": 641.0
 	},
 	"console":
 	{
@@ -578,10 +613,18 @@
 	},
 	"expanded_folders":
 	[
-		"/D/Repositories/OperatingSystems"
+		"/D/Repositories/OperatingSystems",
+		"/D/Repositories/OperatingSystems/Lab2",
+		"/D/Repositories/OperatingSystems/Lab2/_local"
 	],
 	"file_history":
 	[
+		"/D/Repositories/OperatingSystems/Lab1/Makefile",
+		"/D/Repositories/OperatingSystems/Lab1/_local/pipe.c",
+		"/D/Repositories/OperatingSystems/Lab1/duplicates",
+		"/D/Repositories/OperatingSystems/Lab1/_local/fork.c",
+		"/D/Repositories/OperatingSystems/Lab1/misc.incl",
+		"/D/Repositories/OperatingSystems/Lab1/execute",
 		"/D/Repositories/Algorithms/NeuralNetwork/network.hpp",
 		"/D/Repositories/Algorithms/tiff",
 		"/D/Repositories/Algorithms/serialize.hpp",
@@ -623,7 +666,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -637,6 +680,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"path",
+			"it.path",
+			"cat",
+			"cat\\\\",
+			"eqlen",
+			"args",
+			"args_t",
 			"argv_t",
 			"args_t",
 			"(\\*d)",
@@ -657,6 +707,10 @@
 		"regex": true,
 		"replace_history":
 		[
+			"dir",
+			"it.dir",
+			"cmd",
+			"command_t",
 			"args_t",
 			"argv_t",
 			"*$1",
@@ -677,7 +731,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -686,15 +740,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3938,
+						"buffer_size": 4952,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2306,
-								2306
+								827,
+								827
 							]
 						],
 						"settings":
@@ -703,56 +757,84 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 882.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Lab1/execute.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1050,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1050,
-								1050
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 42.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "Lab1/ring.c",
+					"buffer": 1,
+					"file": "Lab1/misc.incl",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1076,
+						"buffer_size": 10288,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								1076
+								586,
+								586
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1053.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Lab1/duplicates.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5454,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1231,
+								1231
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 351.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Lab1/execute.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1222,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								901,
+								901
 							]
 						],
 						"settings":
@@ -761,57 +843,56 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 210.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "Lab1/_local/ex3/main.cc",
-					"semi_transient": true,
+					"buffer": 4,
+					"file": "Lab1/ring.c",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2742,
+						"buffer_size": 2260,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2188,
+								2188
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++11/C++11.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 877.0,
+						"translation.y": 312.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "Lab1/_local/fork.c",
-					"semi_transient": false,
+					"buffer": 5,
+					"file": "Lab2/_local/demo.c",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 648,
+						"buffer_size": 2086,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								147,
-								147
+								422,
+								422
 							]
 						],
 						"settings":
@@ -824,86 +905,67 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 0,
 					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Lab1/execute",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 47780,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 4,
+			"sheets":
+			[
 				{
 					"buffer": 6,
-					"file": "Lab1/misc.incl",
+					"file": "Lab1/_local/files.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7660,
+						"buffer_size": 1007,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								690,
-								690
+								674,
+								678
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "Lab1/Makefile",
+					"file": "Lab1/_local/fcntl.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 218,
+						"buffer_size": 895,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								105,
-								105
+								346,
+								346
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Makefile Plus/makefile-plus.tmLanguage"
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -914,53 +976,19 @@
 				},
 				{
 					"buffer": 8,
+					"file": "Lab1/_local/stat.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 913,
+						"buffer_size": 953,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								913,
-								913
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 1.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 9,
-					"file": "Lab1/_local/pipe.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 807,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								515,
-								515
+								123,
+								79
 							]
 						],
 						"settings":
@@ -973,7 +1001,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Lab1/_local/stdio.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 541,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								371,
+								371
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -981,27 +1039,26 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 312,
+						"buffer_size": 766,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								312,
-								312
+								766,
+								766
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/C Improved/C Improved.tmLanguage"
 						},
-						"translation.x": 0.0,
+						"translation.x": 6.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1009,7 +1066,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 22.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -1061,7 +1118,7 @@
 	"project": "OperatingSystems.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":
