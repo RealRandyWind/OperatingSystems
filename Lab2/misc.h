@@ -11,6 +11,9 @@
 #define max(a, b) ((a) > (b) ? (a) : (b))
 #define min(a, b) ((a) < (b) ? (a) : (b))
 
+#define success 1
+#define failure -1
+#define error -1
 #define nothing -1
 #define undefined -1
 #define null 0
