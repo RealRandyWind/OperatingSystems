@@ -1,10 +1,11 @@
 #ifndef MISC_H
 #define MISC_H
 
-#include <unistd.h>
-#include <sys/stat.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 #define SBOOL(a) ((a) ? "true" : "false")
 
@@ -38,6 +39,10 @@ void* realloc_s(void *d, int sz);
 int fork_s();
 int pipe_s(int fd[2]);
 int stat_s(const char *path, struct stat *pstat);
+int open_s(const char *path, int flags);
+int close_s(int fd);
+int read_s(int fd, void* buff, int sz);
+int write_s(int fd, void* buff, int sz);
 
 /*
  * Type* <typename>_s(int N)

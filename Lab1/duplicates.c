@@ -1,4 +1,3 @@
-#include <fcntl.h>
 #include <dirent.h>
 #include "misc.h"
 
@@ -9,9 +8,6 @@
 #define DIRSEP "/"
 #define ISHOMEDIR(a) (eq0(".",a))
 #define ISPARENTDIR(a) (eq0("..",a))
-#define DT_ISLNK(a) ((a) == DT_LNK)
-#define DT_ISREG(a) ((a) == DT_REG)
-#define DT_ISDIR(a) ((a) == DT_DIR)
 #define DUPLICATE_MSG_SS "%s and %s are same file\n"
 
 typedef struct file_t { char *name, *dir, *path; off_t size; } file_t;
@@ -59,7 +55,7 @@ iter_t rawit(const char *dir)
 	iter_t it;
 
 	it.pdir = nullptr; it._next = nullptr;
-	it.dir = cp0len(nullptr, dir);
+	it.dir = (char *) cp0len(nullptr, dir);
 	return it;
 }
 
@@ -74,15 +70,14 @@ iter_t rawit(const char *dir)
  */
 int nextf(iter_t *pit, file_t *pfile)
 {
-	const char *path;
-	DIR* pdir;
 	iter_t it, it2, *pit2;
 	file_t file;
 	struct stat fstat;
 	struct dirent* pdent;
+	char* path;
 
 	if(!pit || !pfile) { exit(EXIT_FAILURE); }
-	it = *pit; /*_perv = pit;*/
+	it = *pit; path = nullptr;
 
 	if(!it.pdir) { it.pdir = opendir(it.dir); }
 
@@ -104,8 +99,12 @@ int nextf(iter_t *pit, file_t *pfile)
 			continue;
 		}
 
-		if(DT_ISLNK(pdent->d_type))
+		path = (char *) catd0len(it.dir, pdent->d_name, DIRSEP);
+		stat_s(path, &fstat);
+
+		if(S_ISLNK(fstat.st_mode))
 		{
+			free_s(path); path = nullptr;
 			/* skip resolving for now, needs detection of circularity */
 			continue;
 			/*
@@ -118,11 +117,11 @@ int nextf(iter_t *pit, file_t *pfile)
 		}
 
 		/* itk = {pk, dk,itn}, pdk = {ik,rk,tk,nk} */
-		if(DT_ISDIR(pdent->d_type))
+		if(S_ISDIR(fstat.st_mode))
 		{
 			if (ISHOMEDIR(pdent->d_name) || ISPARENTDIR(pdent->d_name)) { continue; }
 			/* itk = {pk,dk,itn}, it2k = {-,-,-} */
-			it2.dir = catd0len(it.dir, pdent->d_name, DIRSEP);
+			it2.dir = path; path = nullptr;
 			/* itk = {pk,dk,itn}, it2k = {pk2,-,-} */
 			it2._next = it._next;
 			/* itk = {pk,dk,itn}, it2k = {pk2,-,itn} */
@@ -132,18 +131,19 @@ int nextf(iter_t *pit, file_t *pfile)
 			continue;
 		}
 
-		if(DT_ISREG(pdent->d_type))
+		if(S_ISREG(fstat.st_mode))
 		{
-			file.name = cp0len(nullptr, pdent->d_name);
-			file.dir = cp0len(nullptr, it.dir);
-			file.path = catd0len(file.dir, file.name, DIRSEP);
-			stat_s(file.path, &fstat);
+			file.name = (char *) cp0len(nullptr, pdent->d_name);
+			file.dir = (char *) cp0len(nullptr, it.dir);
+			file.path = path; path = nullptr;
 			file.size = fstat.st_size;
 			*pit = it; *pfile = file;
 			return true;
 		}
+
+		free_s(path);
 	}
-	/* itk = {-,-,-} */	
+	/* itk = {-,-,-} */
 	return false;
 }
 
@@ -178,19 +178,19 @@ int install(file_t file, map_t *pmap)
 			buff = char_s(file.size);
 			buffn = char_s(file.size);
 			/* once read file to buff for compare */
-			fd = open(file.path, O_RDONLY);
-			read(fd, buff, file.size);
+			fd = open_s(file.path, O_RDONLY);
+			read_s(fd, buff, file.size);
 		}
 		/* open filen for compare compare and close it */
-		fdn = open(filen.path, O_RDONLY);
-		read(fdn, buffn, file.size);
-		close(fdn);
+		fdn = open_s(filen.path, O_RDONLY);
+		read_s(fdn, buffn, file.size);
+		close_s(fdn);
 		/* return index of eq file if same */
 		if(eq(buff, buffn, file.size)) { return n; }
 	}
 
 	/* free buff, buffn and close file */
-	if(fd > 0) { close(fd); free_s(buff); free_s(buffn); }
+	if(fd > 0) { close_s(fd); free_s(buff); free_s(buffn); }
 
 	/* increase size map if needed adding new file */
 	if(map.N >= map._N) { map.d = file2_s(map.d, map._N <<= 1); }
@@ -201,14 +201,12 @@ int install(file_t file, map_t *pmap)
 	return NOFINDS;
 }
 
-int main(int argc, char **argv, char **envp)
+int main()
 {
 	int n;
 	file_t file;
 	iter_t it;
 	map_t map;
-
-	if(argc != 1) { return EXIT_FAILURE; }
 	
 	/* init map and iterator */
 	it = rawit(DUPLICATE_ROOT);

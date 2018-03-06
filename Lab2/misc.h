@@ -1,19 +1,21 @@
 #ifndef MISC_H
 #define MISC_H
 
-#include <unistd.h>
-#include <sys/stat.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
+#include <sys/wait.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 #define SBOOL(a) ((a) ? "true" : "false")
 
 #define max(a, b) ((a) > (b) ? (a) : (b))
 #define min(a, b) ((a) < (b) ? (a) : (b))
 
+#define none 0
 #define success 1
 #define failure -1
-#define error -1
 #define nothing -1
 #define undefined -1
 #define null 0
@@ -41,6 +43,10 @@ void* realloc_s(void *d, int sz);
 int fork_s();
 int pipe_s(int fd[2]);
 int stat_s(const char *path, struct stat *pstat);
+int open_s(const char *path, int flags);
+int close_s(int fd);
+int read_s(int fd, void* buff, int sz);
+int write_s(int fd, void* buff, int sz);
 
 /*
  * Type* <typename>_s(int N)

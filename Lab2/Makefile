@@ -1,5 +1,6 @@
 NAME = iwish
-CXX ?= g++
+CXX = gcc
+LOG = $(Name).logs.cmpl
 COMPILE_FLAGS = -std=c99 -pedantic -Wall -Wextra -g -DDEBUG
 TESTS := $(patsubst %.in,%.out,$(wildcard tests/*.in))
 
@@ -8,7 +9,7 @@ TESTS := $(patsubst %.in,%.out,$(wildcard tests/*.in))
 all: main-build
 
 main-build:
-	$(CXX) -o $(NAME) $(NAME).c $(COMPILE_FLAGS)
+	$(CXX) -o $(NAME) $(NAME).c $(COMPILE_FLAGS) 2>> $(LOG)
 
 test: build clean-test ./a.out $(TESTS)
 	echo $(TESTS)
@@ -19,7 +20,7 @@ test: build clean-test ./a.out $(TESTS)
 	(diff $@ $@.expected > $@.diff && echo $*: passed >> tests.log) || echo $*: faild >> tests.log
 
 clean:
-	rm -f ./$(NAME)
+	rm -f ./$(NAME) $(NAME).logs.cmpl
 
 clean-test:
 	rm -f ./tests/*.out ./tests/*.diff ./tests.log

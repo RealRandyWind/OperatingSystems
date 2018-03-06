@@ -6,7 +6,7 @@
 #define ARGUMENT_INIT_SIZE 8
 #define INVALID_COMMAND_SS "%s: command %s not found\n"
 
-int execvpe(const char *path, char * const argv[], char *const envp[]);
+int execvpe(const char *file, char *const argv[], char *const envp[]);
 
 /*
  * splits a string into parts based on the defined delimiters
@@ -23,7 +23,7 @@ char** split(const char *src, char **_src)
 	if(!src || !*src || !_src) { exit(EXIT_FAILURE); }
 	
 	N = 0; _N = ARGUMENT_INIT_SIZE;
-	_d = *_src = cp0len(nullptr, src); d = pchar_s(_N);
+	_d = *_src = (char *) cp0len(nullptr, src); d = pchar_s(_N);
 	d[N] = strtok(_d, DELIM_SPACE);
 
 	while(d[N++])
@@ -47,7 +47,6 @@ int main(int argc, char **argv, char **envp)
 	{
 		execvpe(d[0], d, envp);
 		printf(INVALID_COMMAND_SS, argv[0], d[0]);
-		return EXIT_FAILURE;
 	}
 	
 	wait(null);
