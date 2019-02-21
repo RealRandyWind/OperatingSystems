@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"cmd",
+				"cmd"
+			],
+			[
+				"cur",
+				"cur_t"
+			],
+			[
+				"grm",
+				"grm_t"
+			],
+			[
+				"fa",
+				"failure"
+			],
+			[
+				"pid",
+				"pid0"
+			],
+			[
+				"stat",
+				"state_t"
+			],
+			[
 				"re",
 				"realloc"
 			],
@@ -484,19 +508,10 @@
 	"buffers":
 	[
 		{
-			"file": "Lab1/misc.h",
+			"file": "Lab2/misc.h",
 			"settings":
 			{
-				"buffer_size": 4952,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Lab1/misc.incl",
-			"settings":
-			{
-				"buffer_size": 10288,
+				"buffer_size": 5306,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -505,74 +520,116 @@
 			"file": "Lab1/duplicates.c",
 			"settings":
 			{
-				"buffer_size": 5454,
+				"buffer_size": 5414,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lab2/iwish.c",
+			"settings":
+			{
+				"buffer_size": 2357,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Lab1/execute.c",
+			"contents": "#include \"misc.h\"\n\n#define CYCLE_CNT 5\n\nvoid worker(int id, volatile int *pturn)\n{\n\tint cycles;\n\n\tcycles = 0;\n\twhile()\n}\n\nint main()\n{\n\texit()\n}",
+			"file": "Lab2/vmem.c",
+			"file_size": 40,
+			"file_write_time": 131651023597851067,
 			"settings":
 			{
-				"buffer_size": 1222,
+				"buffer_size": 144,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Lab2/iwish.incl",
+			"settings":
+			{
+				"buffer_size": 9514,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Lab1/ring.c",
+			"file": "Lab2/Makefile",
 			"settings":
 			{
-				"buffer_size": 2260,
+				"buffer_size": 305,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Lab2/_local/demo.c",
+			"contents": "(\\\"(\\\\\\\"|[^\\\"])*\\\"|[^ \\t\\n\\r\\v\\f^&|<>]*)|(&|<>)&|<>",
 			"settings":
 			{
-				"buffer_size": 2086,
+				"buffer_size": 51,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "static const state_t _c2t[_TOK_SZ][_SYM_SZ] = {\n\t{ [0] = 0x01, [1 ... 32] = 0x0D, ['&'] = 0x03, ['|'] = 0x05, ['<'] = 0x07, ['>'] = 0x09, ['\"'] = 0x0E, [33] = 0x0B, [35 ... 37] = 0x0B, [39 ... 59] = 0x0B, [61] = 0x0B, [63 ... 123] = 0x0B, [125 ... 127] = 0x0B },/* _TEOF */\n\t{ [0] = 0x01, [1 ... 32] = 0x0D, ['&'] = 0x03, ['|'] = 0x05, ['<'] = 0x07, ['>'] = 0x09, ['\"'] = 0x0E, [33] = 0x0B, [35 ... 37] = 0x0B, [39 ... 59] = 0x0B, [61] = 0x0B, [63 ... 123] = 0x0B, [125 ... 127] = 0x0B },/* TBACK */\n\t{ [0] = 0x01, [1 ... 32] = 0x0D, ['&'] = 0x03, ['|'] = 0x05, ['<'] = 0x07, ['>'] = 0x09, ['\"'] = 0x0E, [33] = 0x0B, [35 ... 37] = 0x0B, [39 ... 59] = 0x0B, [61] = 0x0B, [63 ... 123] = 0x0B, [125 ... 127] = 0x0B },/* TPIPE */\n\t{ [0] = 0x01, [1 ... 32] = 0x0D, ['&'] = 0x03, ['|'] = 0x05, ['<'] = 0x07, ['>'] = 0x09, ['\"'] = 0x0E, [33] = 0x0B, [35 ... 37] = 0x0B, [39 ... 59] = 0x0B, [61] = 0x0B, [63 ... 123] = 0x0B, [125 ... 127] = 0x0B },/* TIDIR */\n\t{ [0] = 0x01, [1 ... 32] = 0x0D, ['&'] = 0x03, ['|'] = 0x05, ['<'] = 0x07, ['>'] = 0x09, ['\"'] = 0x0E, [33] = 0x0B, [35 ... 37] = 0x0B, [39 ... 59] = 0x0B, [61] = 0x0B, [63 ... 123] = 0x0B, [125 ... 127] = 0x0B },/* TODIR */\n\t{ [0] = 0x01, [1 ... 32] = 0x0D, ['&'] = 0x03, ['|'] = 0x05, ['<'] = 0x07, ['>'] = 0x09, ['\"'] = 0x0E, [33] = 0x0B, [35 ... 37] = 0x0B, [39 ... 59] = 0x0B, [61] = 0x0B, [63 ... 123] = 0x0B, [125 ... 127] = 0x0B },/* TARGU */\n\t{ [0] = 0x01, [1 ... 32] = 0x0D, ['&'] = 0x03, ['|'] = 0x05, ['<'] = 0x07, ['>'] = 0x09, ['\"'] = 0x0E, [33] = 0x0B, [35 ... 37] = 0x0B, [39 ... 59] = 0x0B, [61] = 0x0B, [63 ... 123] = 0x0B, [125 ... 127] = 0x0B },/* _TSPC */\n\t{ [0 ... 33] = 0x0E, [35 ... 91] = 0x0E, [93 ... 127] = 0x0E, ['\"'] = 0x0B, ['\\\\'] = 0x010 },/* _TSTR */\n\t{ [0 ... 127] = 0x0E },/* _TESC */\n};",
+			"settings":
+			{
+				"buffer_size": 1774,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "/* initialize main variable */\n\t_cur = rawcur(STDIN_FILENO);\n\tcmd._d = nullptr; cmd.args = nullptr;\n\tcmd.fdk[0] = cmd.fdk[1] = cmd.fdn[0] = cmd.fdn[1] = -1;\n\tpid0 = pid = getpid(); RUN = true; BLOCK = false;\n\t/* enter main loop */\n\twhile(RUN)\n\t{\n\t\t/* check if root process or sub process */\n\t\tif(pid != pid0)\n\t\t{\n\t\t\t/* any sub proccess will evaluate command */\n\t\t\teval(cmd, &RUN, envp);\n\t\t\tprintf(INVALID_CMD_DSS, pid, cmd.alias, cmd.type);\n\t\t\tfree(cmd.args); free(cmd._d);\n\t\t\treturn EXIT_FAILURE;\n\t\t}\n\t\t/* block can only be true on successfull fork */\n\t\tif (BLOCK && wait(null) > 0) { BLOCK = false; printf(FAILD_WAIT_D, pid); continue; }\n\t\t/* read command from input */\t\n\t\tif (input(&cmd, &BLOCK, &RUN) < 0) { printf(INVALID_INPUT_D, pid); continue; }\n\t\t/* fork process for command execution */\n\t\tif (fork() < 0) { BLOCK = false; printf(FAILD_FORK_DS, pid, cmd.alias); continue; }\n\t\tpid = getpid(); \n\t}\n\twait_s(null);\n\n\n\tstatic const state_t _t2r[_RUL_SZ][_TOK_SZ] = {\n\t{ 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },/* _eof */\n\t{ 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },/* exec */\n\t{ 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },/* back */\n\t{ 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },/* pipe */\n\t{ 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },/* idir */\n\t{ 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },/* odir */\n\t{ 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },/* file */\n\t{ 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },/* cmdl */\n\t{ 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },/* _spc */\n};/*  _TEOF TBACK TPIPE TIDIR TODIR TARGU _TSPC */\n\n\n\t\t/*\n * <_eof> := _EOF\n * <exec> := TARGU { TARGU } \n * <back> := TBACK\n * <pipe> := TPIPE <exec>\n * <idir> := TIDIR <file> \n * <odir> := TODIR <file>\n * <file> := TARGU\n * <cmdl> := <exec> [ <idir> <odir> | <odir> <idir> | ( <idir> | <odir> ) ] [ <pipe> ] [ <back> ]\n\n0 0x00 0x01  <_eof>\n1 0x02 0x03  <exec>\n2 0x04 0x05  <back>\n3 0x06 0x07  <pipe>\n4 0x08 0x09  <idir>\n5 0x0A 0x0B  <odir>\n6 0x0C 0x0D  <file>\n7 0x0E 0x0F  <cmdl>\n8 0x10 0x11  <_spc>",
+			"settings":
+			{
+				"buffer_size": 1985,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Fri Mar  9 23:42:08 STD 2018\nIn file included from iwish.c:11:0:\niwish.incl: In function ‘parse’:\niwish.incl:95:17: warning: array subscript has type ‘char’ [-Wchar-subscripts]\n  s2t(_c2t[cur.t][cur.c], &cur);\n                 ^\niwish.incl:90:10: warning: unused variable ‘s’ [-Wunused-variable]\n  state_t s;\n          ^\niwish.c: In function ‘input’:\niwish.c:47:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]\n  while(_cur.N = read_s(_cur.fd, _cur.d, _BUF_SZ))\n  ^\niwish.c: In function ‘eval’:\niwish.c:62:2: warning: implicit declaration of function ‘execvpe’ [-Wimplicit-function-declaration]\n  execvpe(cmd.alias, cmd.args, envp);\n  ^\niwish.c:60:32: warning: unused parameter ‘pRUN’ [-Wunused-parameter]\n int eval(const cmd_t cmd, int *pRUN, char **envp)\n                                ^\niwish.c: In function ‘main’:\niwish.c:69:13: warning: unused variable ‘pcmd’ [-Wunused-variable]\n  cmd_t cmd, pcmd;\n             ^\niwish.c:66:14: warning: unused parameter ‘argc’ [-Wunused-parameter]\n int main(int argc, char **argv, char **envp)\n              ^\niwish.c:66:27: warning: unused parameter ‘argv’ [-Wunused-parameter]\n int main(int argc, char **argv, char **envp)\n                           ^\n",
+			"file": "Lab2/iwish.logs.cmpl",
+			"file_size": 1285,
+			"file_write_time": 131651089287686295,
+			"settings":
+			{
+				"buffer_size": 1233,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Lab1/_local/files.c",
+			"contents": "Fri Mar  9 23:42:07 STD 2018\n",
+			"file": "Lab2/vmem.logs.cmpl",
+			"file_size": 29,
+			"file_write_time": 131651089279248891,
 			"settings":
 			{
-				"buffer_size": 1007,
+				"buffer_size": 29,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Lab1/_local/fcntl.c",
+			"contents": "NAME = iwish\nCXX = gcc\nTLOG = $(NAME).logs.test\nLOG = $(NAME).logs.cmpl\nCOMPILE_FLAGS = -std=c99 -pedantic -Wall -Wextra -g -DDEBUG\nTESTS := $(patsubst %.in,%.out,$(wildcard tests/*.in))\n\n.PHONY: all clean-all\n\nall: main-build\n\nmain-build:\n\t@date >> $(LOG)\n\t$(CXX) -o $(NAME) $(NAME).c $(COMPILE_FLAGS) 2>> $(LOG)\n\ntest: build clean-test ./a.out $(TESTS)\n\techo $(TESTS)\n\tcat $(TLOG)\n\n./tests/%.out: ./tests/%.in\n\t./a.out < $< > $@ || true\n\t(diff $@ $@.expected > $@.diff && echo $*: passed >> $(TLOG)) || echo $*: faild >> $(TLOG)\n\nclean:\n\trm -f ./$(NAME) $(LOG)\n\nclean-test:\n\trm -f ./tests/*.out ./tests/*.diff ./$(TLOG)\n\nclean-all: clean clean-test",
 			"settings":
 			{
-				"buffer_size": 895,
-				"line_ending": "Unix"
+				"buffer_size": 650,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Lab1/_local/stat.c",
+			"contents": "a.c | b | qrts | sdner.sdr |   && <> << <  ||\t|fff|||sas    r -w _sd fh|n=D sdf:f & \"> \" sadnae&nrb\\ \" //||sdne & \"\"\"22\n\n\n\n\nexec1 < file1 | exec2 | exec3 > file2 &\nexec > file1 < file2\nexec1 | exec2\n\n<exec> : TARGU { TARGU }\n<back> : TBACK\n<pipe> : TPIPE <exec> { TPIPE <exec> }\n<idir> : TIDIR TARGU\n<odir> : TODIR TARGU\n<_act> : <exec> \n\nTARGU*\n\n1 _TEOF\n2 TBACK\n3 TPIPE \n4 TIDIR \n5 TODIR \n6 TARGU\n7 _TSPC\n\n\n",
 			"settings":
 			{
-				"buffer_size": 953,
-				"line_ending": "Unix"
+				"buffer_size": 408,
+				"line_ending": "Windows",
+				"name": "a.c | b | qrts | sdner.sdr |   && <> << <  ||\t|fff"
 			}
 		},
 		{
-			"file": "Lab1/_local/stdio.c",
+			"contents": "0000000\n0000000\n0000000\n0000000\n0000000\n0000000\n0000000\n\n/*\ns Rs As\n\n0 00 01  <_eof>\n1 02 03  <exec>\n2 04 05  <back>\n3 06 07  <pipe>\n4 08 09  <idir>\n5 0A 0B  <odir>\n\n0 00 01  _TEOF\n1 02 03  TBACK\n2 04 05  TPIPE\n3 06 07  TIDIR\n4 08 09  TODIR\n5 0A 0B  TARGU\n6 0C 0D  _TSPC\n7 0E 0F  _TSTR\n8 10 11  _TESC\n9 12 13  _TARG\n*/",
 			"settings":
 			{
-				"buffer_size": 541,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "void printmem(const void *mem, int sz)\n{\n\tprintf(\"%*.s\\n\", sz, (const char *)mem);\n}\n\nvoid printmem0(const void *mem)\n{\n\tprintf(\"%s\\n\", (const char *)mem);\n}\n\nvoid printstat(const struct stat file)\n{\n\tprintf (\"{\\n  st_dev: %d,\\n  st_ino: %d,\\n  st_mode: %d,\\n  st_nlink: %d,\\n  st_uid: %d,\\n  st_gid: = %d,\\n  st_size: %d,\\n  st_atime: %d,\\n  st_mtime: %d,\\n}\\n\", \n\t\t\t(int)file.st_dev, (int)file.st_ino, (int)file.st_mode, (int)file.st_nlink, (int)file.st_uid, (int)file.st_gid, (int)file.st_size,\n\t\t\t(int)file.st_atime, (int)file.st_mtime);\n}\n\nvoid printdirent(const struct dirent dir)\n{\n\tprintf(\"{\\n  d_ino: %d,\\n  d_off: %d,\\n  d_reclen: %d,\\n  d_type: %d,\\n  d_name: %s,\\n}\\n\",\n\t\t(int)dir.d_ino, (int)dir.d_off, (int)dir.d_reclen, (int)dir.d_type, dir.d_name);\n}",
-			"settings":
-			{
-				"buffer_size": 766,
+				"buffer_size": 318,
 				"line_ending": "Windows"
 			}
 		}
@@ -584,16 +641,20 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 170.0,
 		"last_filter": "c++",
 		"selected_items":
 		[
 			[
 				"c++",
 				"Set Syntax: C++"
+			],
+			[
+				"c",
+				"Set Syntax: C++"
 			]
 		],
-		"width": 641.0
+		"width": 444.0
 	},
 	"console":
 	{
@@ -614,17 +675,48 @@
 	"expanded_folders":
 	[
 		"/D/Repositories/OperatingSystems",
+		"/D/Repositories/OperatingSystems/Lab1",
 		"/D/Repositories/OperatingSystems/Lab2",
 		"/D/Repositories/OperatingSystems/Lab2/_local"
 	],
 	"file_history":
 	[
+		"/D/Repositories/OperatingSystems/Lab2/_iwish.out",
+		"/D/Repositories/OperatingSystems/Lab2/_iwish.in",
+		"/D/Repositories/OperatingSystems/Lab2/_c2t.tbl",
+		"/D/Repositories/OperatingSystems/Lab2/misc.incl",
+		"/D/Repositories/OperatingSystems/Lab2/vmem.c",
+		"/D/Repositories/OperatingSystems/Lab2/_local/demo.c",
 		"/D/Repositories/OperatingSystems/Lab1/Makefile",
+		"/D/Repositories/OperatingSystems/Lab2/Makefile",
+		"/D/Repositories/OperatingSystems/Lab1/execute",
+		"/D/Repositories/OperatingSystems/Lab2/iwish.logs.cmpl",
+		"/D/Repositories/OperatingSystems/Lab1/_cmpl.rm",
+		"/D/Repositories/OperatingSystems/Lab1/duplicates.logs.cmpl",
+		"/D/Repositories/OperatingSystems/Lab1/ring.c",
+		"/D/Repositories/OperatingSystems/Lab1/duplicates.c",
+		"/D/Repositories/OperatingSystems/Lab1/misc.h",
+		"/D/Repositories/OperatingSystems/Lab1/misc.incl",
+		"/D/Repositories/OperatingSystems/Lab1/execute.c",
+		"/D/Repositories/OperatingSystems/Lab2/.logs.cmpl",
+		"/D/Repositories/OperatingSystems/Lab1/logs.cmpl",
+		"/D/Repositories/OperatingSystems/Lab2/iwish.h",
+		"/D/Repositories/OperatingSystems/Lab2/tests/1.in",
+		"/D/Repositories/CompilerAndConstructions/Lab3a/y.tab.c",
+		"/D/Repositories/CompilerAndConstructions/Lab3a/lex.yy.c",
+		"/D/Repositories/OperatingSystems/Lab2/iwish.ya",
+		"/D/Repositories/CompilerAndConstructions/Lab3b/Makefile",
+		"/D/Repositories/CompilerAndConstructions/Lab3b/minipascal.h",
+		"/D/Repositories/CompilerAndConstructions/Lab3b/minipascal.c",
+		"/D/Repositories/OperatingSystems/Lab2/iwish.c",
+		"/D/Repositories/OperatingSystems/Lab2/misc.h",
+		"/D/Repositories/OperatingSystems/Lab1/_local/stdio.c",
+		"/D/Repositories/OperatingSystems/Lab1/_local/stat.c",
+		"/D/Repositories/OperatingSystems/Lab1/_local/fcntl.c",
+		"/D/Repositories/OperatingSystems/Lab1/_local/files.c",
 		"/D/Repositories/OperatingSystems/Lab1/_local/pipe.c",
 		"/D/Repositories/OperatingSystems/Lab1/duplicates",
 		"/D/Repositories/OperatingSystems/Lab1/_local/fork.c",
-		"/D/Repositories/OperatingSystems/Lab1/misc.incl",
-		"/D/Repositories/OperatingSystems/Lab1/execute",
 		"/D/Repositories/Algorithms/NeuralNetwork/network.hpp",
 		"/D/Repositories/Algorithms/tiff",
 		"/D/Repositories/Algorithms/serialize.hpp",
@@ -677,9 +769,41 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"a",
+			"_safe",
+			"0",
+			"0000000",
+			"0",
+			"[\\t\\n\\r\\v",
+			"<3",
+			"_safeZ",
+			"fstat",
+			"_s",
+			"\\*\\* p",
+			"_s",
+			"\\\"(\\\\\\\")*[^\\\"]*\\\"",
+			"inline",
+			"INPUT",
+			"yy_dECL",
+			"YYLEX",
+			"YYPARS",
+			"FREAD",
+			"SCAN",
+			"yylex",
+			"yyparse",
+			"yyparsw",
+			"yypars",
+			"yyin",
+			"read",
+			"yyin",
+			"scan",
+			"yypars",
+			"YY_INPUT",
+			"getc",
+			"read",
 			"path",
 			"it.path",
 			"cat",
@@ -707,6 +831,21 @@
 		"regex": true,
 		"replace_history":
 		[
+			"\\0",
+			"_s",
+			"0x00, ",
+			"0x00,",
+			"0x00 ",
+			"\\0",
+			"\\\\0",
+			"\\0",
+			" <3",
+			"_SZ",
+			"_safe",
+			"** ptr",
+			"_safe",
+			"safe",
+			"__inline__",
 			"dir",
 			"it.dir",
 			"cmd",
@@ -731,82 +870,24 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Lab1/misc.h",
+					"file": "Lab2/misc.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4952,
+						"buffer_size": 5306,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								827,
-								827
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Lab1/misc.incl",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10288,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								586,
-								586
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1053.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Lab1/duplicates.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5454,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1231,
-								1231
+								195,
+								195
 							]
 						],
 						"settings":
@@ -814,7 +895,66 @@
 							"syntax": "Packages/C++/C++.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 351.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Lab1/duplicates.c",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5414,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3321,
+								3327
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1184.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Lab2/iwish.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2357,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1686,
+								1685
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -822,150 +962,24 @@
 				},
 				{
 					"buffer": 3,
-					"file": "Lab1/execute.c",
+					"file": "Lab2/vmem.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1222,
+						"buffer_size": 144,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								901,
-								901
+								109,
+								109
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Lab1/ring.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2260,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2188,
-								2188
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 312.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Lab2/_local/demo.c",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2086,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								422,
-								422
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 4,
-			"sheets":
-			[
-				{
-					"buffer": 6,
-					"file": "Lab1/_local/files.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1007,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								674,
-								678
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Lab1/_local/fcntl.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 895,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								346,
-								346
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/C Improved/C Improved.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -973,29 +987,62 @@
 					},
 					"stack_index": 9,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 8,
-					"file": "Lab1/_local/stat.c",
+					"buffer": 4,
+					"file": "Lab2/iwish.incl",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 953,
+						"buffer_size": 9514,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								123,
-								79
+								1422,
+								1422
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1221.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Lab2/Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 305,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								69,
+								77
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile Plus/makefile-plus.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1005,60 +1052,231 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "Lab1/_local/stdio.c",
+					"buffer": 6,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 541,
+						"buffer_size": 51,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								371,
-								371
+								51,
+								51
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Regular Expressions/RegExp.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 7,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 766,
+						"buffer_size": 1774,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								766,
-								766
+								1276,
+								1280
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage"
+							"syntax": "Packages/C++/C++.sublime-syntax"
 						},
-						"translation.x": 6.0,
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1985,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1985,
+								1985
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 105.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 9,
+					"file": "Lab2/iwish.logs.cmpl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1233,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								605,
+								605
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 39.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "Lab2/vmem.logs.cmpl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 29,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 650,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								538,
+								538
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile Plus/makefile-plus.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 408,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								325,
+								325
+							]
+						],
+						"settings":
+						{
+							"auto_name": "a.c | b | qrts | sdner.sdr |   && <> << <  ||\t|fff",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 318,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								164,
+								69
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
 					"type": "text"
 				}
 			]
@@ -1066,7 +1284,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 40.0
 	},
 	"input":
 	{
@@ -1080,24 +1298,31 @@
 				0,
 				0,
 				1,
-				1
+				2
 			],
 			[
 				1,
 				0,
 				2,
 				1
+			],
+			[
+				1,
+				1,
+				2,
+				2
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.511574277324,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
+			0.728235294118,
 			1.0
 		]
 	},
@@ -1118,7 +1343,7 @@
 	"project": "OperatingSystems.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 76.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1151,6 +1376,27 @@
 	"selected_group": 0,
 	"settings":
 	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				2
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		]
 	},
 	"show_minimap": true,
 	"show_open_files": false,
@@ -1160,5 +1406,6 @@
 	"status_bar_visible": true,
 	"template_settings":
 	{
+		"max_columns": 2
 	}
 }

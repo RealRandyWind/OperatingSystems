@@ -15,28 +15,28 @@ typedef struct iter_t { char *dir; DIR *pdir; struct iter_t *_next; } iter_t;
 typedef struct map_t { int N, _N; file_t *d; } map_t;
 
 /* safely allocats a file array of size N */
-file_t* file_s(int N)
+file_t* file_safe(int N)
 {
-	return (file_t *) malloc_s(N * sizeof(file_t));
+	return (file_t *) malloc_safe(N * sizeof(file_t));
 }
 
 /* safely reallocates a file array to size N */
-file_t* file2_s(file_t *d, int N)
+file_t* file2_safe(file_t *d, int N)
 {
-	return (file_t *) realloc_s(d, N * sizeof(file_t));
+	return (file_t *) realloc_safe(d, N * sizeof(file_t));
 }
 
 /* frees the file */
 void freefile(file_t file)
 {
-	free_s(file.name); free_s(file.dir); free_s(file.path);
+	free_safe(file.name); free_safe(file.dir); free_safe(file.path);
 }
 
 /* frees the map and its files */
 void freemap(map_t map)
 {
 	while(--map.N >= 0) { freefile(map.d[map.N]); }
-	free_s(map.d);
+	free_safe(map.d);
 }
 
 /* raw type constructor of map */
@@ -45,12 +45,12 @@ map_t rawmap(int N)
 	map_t map;
 
 	map.N = 0; map._N = N;
-	map.d = file_s(N);
+	map.d = file_safe(N);
 	return map;
 }
 
 /* raw type constructor of it */
-iter_t rawit(const char *dir)
+iter_t rawiter(const char *dir)
 {
 	iter_t it;
 
@@ -88,11 +88,11 @@ int nextf(iter_t *pit, file_t *pfile)
 		if(!(pdent = readdir(it.pdir)))
 		{
 			/* itk = {pk,dk,itn} */
-			closedir(it.pdir); free_s(it.dir);
+			closedir(it.pdir); free_safe(it.dir);
 			it.pdir = nullptr; it.dir = nullptr;
 			if(!it._next) { break; } 
 			/* itk = {-,-,itn} */
-			pit2 = it._next; it = *it._next; free_s(pit2);
+			pit2 = it._next; it = *it._next; free_safe(pit2);
 			/* itk = {pn,-,it2n} */
 			it.pdir = opendir(it.dir);
 			/* itk = {pn,dn,it2n} */
@@ -100,11 +100,11 @@ int nextf(iter_t *pit, file_t *pfile)
 		}
 
 		path = (char *) catd0len(it.dir, pdent->d_name, DIRSEP);
-		stat_s(path, &fstat);
+		stat_safe(path, &fstat);
 
 		if(S_ISLNK(fstat.st_mode))
 		{
-			free_s(path); path = nullptr;
+			free_safe(path); path = nullptr;
 			/* skip resolving for now, needs detection of circularity */
 			continue;
 			/*
@@ -125,7 +125,7 @@ int nextf(iter_t *pit, file_t *pfile)
 			/* itk = {pk,dk,itn}, it2k = {pk2,-,-} */
 			it2._next = it._next;
 			/* itk = {pk,dk,itn}, it2k = {pk2,-,itn} */
-			it._next = (iter_t *) malloc_s(sizeof(iter_t));
+			it._next = (iter_t *) malloc_safe(sizeof(iter_t));
 			*it._next = it2;
 			/* itk = {pk,dk,it2k}, it2k = {pk2,d2k,itn} */
 			continue;
@@ -141,7 +141,7 @@ int nextf(iter_t *pit, file_t *pfile)
 			return true;
 		}
 
-		free_s(path);
+		free_safe(path);
 	}
 	/* itk = {-,-,-} */
 	return false;
@@ -175,25 +175,25 @@ int install(file_t file, map_t *pmap)
 		if(fd < 0)
 		{
 			/* once init buff and buffn if equal size */
-			buff = char_s(file.size);
-			buffn = char_s(file.size);
+			buff = char_safe(file.size);
+			buffn = char_safe(file.size);
 			/* once read file to buff for compare */
-			fd = open_s(file.path, O_RDONLY);
-			read_s(fd, buff, file.size);
+			fd = open_safe(file.path, O_RDONLY);
+			read_safe(fd, buff, file.size);
 		}
 		/* open filen for compare compare and close it */
-		fdn = open_s(filen.path, O_RDONLY);
-		read_s(fdn, buffn, file.size);
-		close_s(fdn);
+		fdn = open_safe(filen.path, O_RDONLY);
+		read_safe(fdn, buffn, file.size);
+		close_safe(fdn);
 		/* return index of eq file if same */
 		if(eq(buff, buffn, file.size)) { return n; }
 	}
 
 	/* free buff, buffn and close file */
-	if(fd > 0) { close_s(fd); free_s(buff); free_s(buffn); }
+	if(fd > 0) { close_safe(fd); free_safe(buff); free_safe(buffn); }
 
 	/* increase size map if needed adding new file */
-	if(map.N >= map._N) { map.d = file2_s(map.d, map._N <<= 1); }
+	if(map.N >= map._N) { map.d = file2_safe(map.d, map._N <<= 1); }
 
 	map.d[map.N++] = file;
 
@@ -207,9 +207,9 @@ int main()
 	file_t file;
 	iter_t it;
 	map_t map;
-	
+
 	/* init map and iterator */
-	it = rawit(DUPLICATE_ROOT);
+	it = rawiter(DUPLICATE_ROOT);
 	map = rawmap(INIT_MAP_SIZE);
 
 	/* loop all files foud by iterator */

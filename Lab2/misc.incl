@@ -79,6 +79,14 @@ __inline__ int write_s(int fd, void* buff, int sz)
 	return ret;
 }
 
+__inline__ int wait_s(int *status)
+{
+	int ret;
+
+	if((ret = wait(status)) < 0) { exit(EXIT_FAILURE); }
+	return ret;
+}
+
 /* functions Type* <typename>_s(int N) */
 
 __inline__ uchar* uchar_s(int N)

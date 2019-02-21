@@ -47,6 +47,7 @@ int open_s(const char *path, int flags);
 int close_s(int fd);
 int read_s(int fd, void* buff, int sz);
 int write_s(int fd, void* buff, int sz);
+int wait_s(int *status);
 
 /*
  * Type* <typename>_s(int N)
@@ -119,12 +120,14 @@ ldouble** pldouble2_s(ldouble **d, int N);
  *
  * set : initializes the array to v bytes
  * unset : initializes the array to null bytes
- * rm : free pointer and return nullptr
- * mk : makes pointer to of byte size
- * rs : resizes a pointer to new byte size
- * cp : copies bytes size into other pointer
- * mv : moves bytes size into other pointer
- * eq : compares bytes size of pointers
+ * rm  : free pointer and return nullptr
+ * mk  : makes pointer to of byte size
+ * rs  : resizes a pointer to new byte size
+ * cp  : copies bytes size into other pointer
+ * mv  : moves bytes size into other pointer
+ * cat : concatenate 2 strings
+ * catd: concatenate 2 strings seperated by a delimiter
+ * eq  : compares bytes size of pointers
  * len : computes size of null termiated bytes pointer
  * checksum : bytes data given size
  */

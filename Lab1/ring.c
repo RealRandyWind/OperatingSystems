@@ -25,7 +25,7 @@ void cpipe(int N, int *PARENT, int *pidn, int fdn[2])
 	for (n = 1; n < N; ++n)
 	{	
 		/* rn = rk, fdn = {bk,(rk,wk)} */
-		pipe_s(fdn); *PARENT = fork_s();
+		pipe_safe(fdn); *PARENT = fork_safe();
 		/* rn = rk, fdn = {bn,(rn,wn)} */
 		rk = rn; rn = fdn[0]; fdn[0] = rk;
 		/* rn = rn, fdn = {bn,(rk,wn)} */
@@ -36,9 +36,14 @@ void cpipe(int N, int *PARENT, int *pidn, int fdn[2])
 	/* rn = rn, w0 = w0, fdn = {b0,(rn,w0)} */
 }
 
+void onerror() { kill(0, 0); }
+
 int main(int argc, char **argv)
 {
 	int PARENT, pidn, fdn[2], N, K, sz;
+
+	/* set exit to kill all other (waiting) processes */
+	atexit(onerror);
 
 	if(argc != 2) { exit(EXIT_FAILURE); }
 
@@ -47,8 +52,8 @@ int main(int argc, char **argv)
 	if(N < 2 || N > 16) { exit(EXIT_FAILURE); }
 	
 	/* open a pipe and assign pid write first value to pipe buff */
-	pipe_s(fdn); pidn = getpid();
-	write_s(fdn[1], &K, sz);
+	pipe_safe(fdn); pidn = getpid();
+	write_safe(fdn[1], &K, sz);
 	printf(RING_MSG_DD, pidn, K);
 	
 	/* create a circular pipe line */
@@ -64,15 +69,15 @@ int main(int argc, char **argv)
 		 * a pipe for each proccess to write and block reads
 		 * from its neighbour.
 		 */
-		read_s(fdn[0], &K, sz);
+		read_safe(fdn[0], &K, sz);
 		++K;
-		write_s(fdn[1], &K, sz);
+		write_safe(fdn[1], &K, sz);
 		/* teminate the loop if K limit is reached */
 		if(K > RING_LIMIT_K) { break; };
 		printf(RING_MSG_DD, pidn, K);
 	}
 	/* cleanup and close discriptors and wait for all processes to finish */
-	close_s(fdn[0]); close_s(fdn[1]);
+	close_safe(fdn[0]); close_safe(fdn[1]);
 	wait(null);
 
 	return EXIT_SUCCESS;

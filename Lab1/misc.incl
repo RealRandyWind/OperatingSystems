@@ -3,13 +3,13 @@
 
 /* base safe functions */
 
-__inline__ void free_s(void *d)
+__inline__ void free_safe(void *d)
 {
 	if(!d) { exit(EXIT_FAILURE); }
 	free(d);
 }
 
-__inline__ void* malloc_s(int sz)
+__inline__ void* malloc_safe(int sz)
 {
 	void *d;
 
@@ -17,13 +17,13 @@ __inline__ void* malloc_s(int sz)
 	return d;
 }
 
-__inline__ void* realloc_s(void *d, int sz)
+__inline__ void* realloc_safe(void *d, int sz)
 { 
 	if(!(d = realloc(d, sz))) { exit(EXIT_FAILURE); }
 	return d;
 }
 
-__inline__ int fork_s()
+__inline__ int fork_safe()
 {
 	int ret;
 
@@ -31,7 +31,7 @@ __inline__ int fork_s()
 	return ret;
 }
 
-__inline__ int pipe_s(int fd[2])
+__inline__ int pipe_safe(int fd[2])
 {
 	int ret;
 
@@ -39,7 +39,7 @@ __inline__ int pipe_s(int fd[2])
 	return ret;
 }
 
-__inline__ int stat_s(const char *path, struct stat *pstat)
+__inline__ int stat_safe(const char *path, struct stat *pstat)
 {
 	int ret;
 
@@ -47,7 +47,7 @@ __inline__ int stat_s(const char *path, struct stat *pstat)
 	return ret;
 }
 
-__inline__ int open_s(const char *path, int flags)
+__inline__ int open_safe(const char *path, int flags)
 {
 	int ret;
 
@@ -55,7 +55,7 @@ __inline__ int open_s(const char *path, int flags)
 	return ret;
 }
 
-__inline__ int close_s(int fd)
+__inline__ int close_safe(int fd)
 {
 	int ret;
 
@@ -63,7 +63,7 @@ __inline__ int close_s(int fd)
 	return ret;
 }
 
-__inline__ int read_s(int fd, void* buff, int sz)
+__inline__ int read_safe(int fd, void* buff, int sz)
 {
 	int ret;
 
@@ -71,7 +71,7 @@ __inline__ int read_s(int fd, void* buff, int sz)
 	return ret;
 }
 
-__inline__ int write_s(int fd, void* buff, int sz)
+__inline__ int write_safe(int fd, void* buff, int sz)
 {
 	int ret;
 
@@ -79,232 +79,232 @@ __inline__ int write_s(int fd, void* buff, int sz)
 	return ret;
 }
 
-/* functions Type* <typename>_s(int N) */
+/* functions Type* <typename>_safe(int N) */
 
-__inline__ uchar* uchar_s(int N)
+__inline__ uchar* uchar_safe(int N)
 {
-	return (uchar *) malloc_s(N * sizeof(uchar));
+	return (uchar *) malloc_safe(N * sizeof(uchar));
 }
 
-__inline__ uint* uint_s(int N)
+__inline__ uint* uint_safe(int N)
 {
-	return (uint *) malloc_s(N * sizeof(uint));
+	return (uint *) malloc_safe(N * sizeof(uint));
 }
 
-__inline__ ulong* ulong_s(int N)
+__inline__ ulong* ulong_safe(int N)
 {
-	return (ulong *) malloc_s(N * sizeof(ulong));
+	return (ulong *) malloc_safe(N * sizeof(ulong));
 }
 
-__inline__ ullong* ullong_s(int N)
+__inline__ ullong* ullong_safe(int N)
 {
-	return (ullong *) malloc_s(N * sizeof(ullong));
+	return (ullong *) malloc_safe(N * sizeof(ullong));
 }
 
-__inline__ llong* llong_s(int N)
+__inline__ llong* llong_safe(int N)
 {
-	return (llong *) malloc_s(N * sizeof(llong));
+	return (llong *) malloc_safe(N * sizeof(llong));
 }
 
-__inline__ char* char_s(int N)
+__inline__ char* char_safe(int N)
 {
-	return (char *) malloc_s(N * sizeof(char));
+	return (char *) malloc_safe(N * sizeof(char));
 }
 
-__inline__ int* int_s(int N)
+__inline__ int* int_safe(int N)
 { 
-	return (int *) malloc_s(N * sizeof(int));
+	return (int *) malloc_safe(N * sizeof(int));
 }
 
-__inline__ long* long_s(int N)
+__inline__ long* long_safe(int N)
 { 
-	return (long *) malloc_s(N * sizeof(long));
+	return (long *) malloc_safe(N * sizeof(long));
 }
 
-__inline__ double* double_s(int N)
+__inline__ double* double_safe(int N)
 { 
-	return (double *) malloc_s(N * sizeof(double));
+	return (double *) malloc_safe(N * sizeof(double));
 }
 
-__inline__ float* float_s(int N)
+__inline__ float* float_safe(int N)
 { 
-	return (float *) malloc_s(N * sizeof(float));
+	return (float *) malloc_safe(N * sizeof(float));
 }
 
-__inline__ ldouble* ldouble_s(int N)
+__inline__ ldouble* ldouble_safe(int N)
 {
-	return (ldouble *) malloc_s(N * sizeof(ldouble));
+	return (ldouble *) malloc_safe(N * sizeof(ldouble));
 }
 
-/* functions Type* <typename>2_s(Type* d, int N) */
+/* functions Type* <typename>2_safe(Type* d, int N) */
 
-__inline__ uchar* uchar2_s(uchar *d, int N)
+__inline__ uchar* uchar2_safe(uchar *d, int N)
 {
-	return (uchar *) realloc_s(d, N * sizeof(uchar));
+	return (uchar *) realloc_safe(d, N * sizeof(uchar));
 }
 
-__inline__ uint* uint2_s(uint *d, int N)
+__inline__ uint* uint2_safe(uint *d, int N)
 {
-	return (uint *) realloc_s(d, N * sizeof(uint));
+	return (uint *) realloc_safe(d, N * sizeof(uint));
 }
 
-__inline__ ulong* ulong2_s(ulong *d, int N)
+__inline__ ulong* ulong2_safe(ulong *d, int N)
 {
-	return (ulong *) realloc_s(d, N * sizeof(ulong));
+	return (ulong *) realloc_safe(d, N * sizeof(ulong));
 }
 
-__inline__ ullong* ullong2_s(ullong *d, int N)
+__inline__ ullong* ullong2_safe(ullong *d, int N)
 {
-	return (ullong *) realloc_s(d, N * sizeof(ullong));
+	return (ullong *) realloc_safe(d, N * sizeof(ullong));
 }
 
-__inline__ llong* llong2_s(llong *d, int N)
+__inline__ llong* llong2_safe(llong *d, int N)
 {
-	return (llong *) realloc_s(d, N * sizeof(llong));
+	return (llong *) realloc_safe(d, N * sizeof(llong));
 }
 
-__inline__ char* char2_s(char *d, int N)
+__inline__ char* char2_safe(char *d, int N)
 {
-	return (char *) realloc_s(d, N * sizeof(char));
+	return (char *) realloc_safe(d, N * sizeof(char));
 }
 
-__inline__ int* int2_s(int *d, int N)
+__inline__ int* int2_safe(int *d, int N)
 { 
-	return (int *) realloc_s(d, N * sizeof(int));
+	return (int *) realloc_safe(d, N * sizeof(int));
 }
 
-__inline__ long* long2_s(long *d, int N)
+__inline__ long* long2_safe(long *d, int N)
 { 
-	return (long *) realloc_s(d, N * sizeof(long));
+	return (long *) realloc_safe(d, N * sizeof(long));
 }
 
-__inline__ double* double2_s(double *d, int N)
+__inline__ double* double2_safe(double *d, int N)
 { 
-	return (double *) realloc_s(d, N * sizeof(double));
+	return (double *) realloc_safe(d, N * sizeof(double));
 }
 
-__inline__ float* float2_s(float *d, int N)
+__inline__ float* float2_safe(float *d, int N)
 { 
-	return (float *) realloc_s(d, N * sizeof(float));
+	return (float *) realloc_safe(d, N * sizeof(float));
 }
 
-__inline__ ldouble* ldouble2_s(ldouble *d, int N)
+__inline__ ldouble* ldouble2_safe(ldouble *d, int N)
 {
-	return (ldouble *) realloc_s(d, N * sizeof(ldouble));
+	return (ldouble *) realloc_safe(d, N * sizeof(ldouble));
 }
 
-/* functions Type** p<typename>_s(int N) */
+/* functions Type** p<typename>_safe(int N) */
 
-__inline__ uchar** puchar_s(int N)
+__inline__ uchar** puchar_safe(int N)
 {
-	return (uchar **) malloc_s(N * sizeof(uchar *));
+	return (uchar **) malloc_safe(N * sizeof(uchar *));
 }
 
-__inline__ uint** puint_s(int N)
+__inline__ uint** puint_safe(int N)
 {
-	return (uint **) malloc_s(N * sizeof(uint *));
+	return (uint **) malloc_safe(N * sizeof(uint *));
 }
 
-__inline__ ulong** pulong_s(int N)
+__inline__ ulong** pulong_safe(int N)
 {
-	return (ulong **) malloc_s(N * sizeof(ulong *));
+	return (ulong **) malloc_safe(N * sizeof(ulong *));
 }
 
-__inline__ ullong** pullong_s(int N)
+__inline__ ullong** pullong_safe(int N)
 {
-	return (ullong **) malloc_s(N * sizeof(ullong *));
+	return (ullong **) malloc_safe(N * sizeof(ullong *));
 }
 
-__inline__ llong** pllong_s(int N)
+__inline__ llong** pllong_safe(int N)
 {
-	return (llong **) malloc_s(N * sizeof(llong *));
+	return (llong **) malloc_safe(N * sizeof(llong *));
 }
 
-__inline__ char** pchar_s(int N)
+__inline__ char** pchar_safe(int N)
 {
-	return (char **) malloc_s(N * sizeof(char *));
+	return (char **) malloc_safe(N * sizeof(char *));
 }
 
-__inline__ int** pint_s(int N)
+__inline__ int** pint_safe(int N)
 { 
-	return (int **) malloc_s(N * sizeof(int *));
+	return (int **) malloc_safe(N * sizeof(int *));
 }
 
-__inline__ long** plong_s(int N)
+__inline__ long** plong_safe(int N)
 { 
-	return (long **) malloc_s(N * sizeof(long *));
+	return (long **) malloc_safe(N * sizeof(long *));
 }
 
-__inline__ double** pdouble_s(int N)
+__inline__ double** pdouble_safe(int N)
 { 
-	return (double **) malloc_s(N * sizeof(double *));
+	return (double **) malloc_safe(N * sizeof(double *));
 }
 
-__inline__ float** pfloat_s(int N)
+__inline__ float** pfloat_safe(int N)
 { 
-	return (float **) malloc_s(N * sizeof(float *));
+	return (float **) malloc_safe(N * sizeof(float *));
 }
 
-__inline__ ldouble** pldouble_s(int N)
+__inline__ ldouble** pldouble_safe(int N)
 {
-	return (ldouble **) malloc_s(N * sizeof(ldouble *));
+	return (ldouble **) malloc_safe(N * sizeof(ldouble *));
 }
 
-/* functions Type** p<typename>2_s(Type** d, int N) */
+/* functions Type** p<typename>2_safe(Type** d, int N) */
 
-__inline__ uchar** puchar2_s(uchar **d, int N)
+__inline__ uchar** puchar2_safe(uchar **d, int N)
 {
-	return (uchar **) realloc_s(d, N * sizeof(uchar *));
+	return (uchar **) realloc_safe(d, N * sizeof(uchar *));
 }
 
-__inline__ uint** puint2_s(uint **d, int N)
+__inline__ uint** puint2_safe(uint **d, int N)
 {
-	return (uint **) realloc_s(d, N * sizeof(uint *));
+	return (uint **) realloc_safe(d, N * sizeof(uint *));
 }
 
-__inline__ ulong** pulong2_s(ulong **d, int N)
+__inline__ ulong** pulong2_safe(ulong **d, int N)
 {
-	return (ulong **) realloc_s(d, N * sizeof(ulong *));
+	return (ulong **) realloc_safe(d, N * sizeof(ulong *));
 }
 
-__inline__ ullong** pullong2_s(ullong **d, int N)
+__inline__ ullong** pullong2_safe(ullong **d, int N)
 {
-	return (ullong **) realloc_s(d, N * sizeof(ullong *));
+	return (ullong **) realloc_safe(d, N * sizeof(ullong *));
 }
 
-__inline__ llong** pllong2_s(llong **d, int N)
+__inline__ llong** pllong2_safe(llong **d, int N)
 {
-	return (llong **) realloc_s(d, N * sizeof(llong *));
+	return (llong **) realloc_safe(d, N * sizeof(llong *));
 }
 
-__inline__ char** pchar2_s(char **d, int N)
+__inline__ char** pchar2_safe(char **d, int N)
 {
-	return (char **) realloc_s(d, N * sizeof(char *));
+	return (char **) realloc_safe(d, N * sizeof(char *));
 }
 
-__inline__ int** pint2_s(int **d, int N)
+__inline__ int** pint2_safe(int **d, int N)
 { 
-	return (int **) realloc_s(d, N * sizeof(int *));
+	return (int **) realloc_safe(d, N * sizeof(int *));
 }
 
-__inline__ long** plong2_s(long **d, int N)
+__inline__ long** plong2_safe(long **d, int N)
 { 
-	return (long **) realloc_s(d, N * sizeof(long *));
+	return (long **) realloc_safe(d, N * sizeof(long *));
 }
 
-__inline__ double** pdouble2_s(double **d, int N)
+__inline__ double** pdouble2_safe(double **d, int N)
 { 
-	return (double **) realloc_s(d, N * sizeof(double *));
+	return (double **) realloc_safe(d, N * sizeof(double *));
 }
 
-__inline__ float** pfloat2_s(float **d, int N)
+__inline__ float** pfloat2_safe(float **d, int N)
 { 
-	return (float **) realloc_s(d, N * sizeof(float *));
+	return (float **) realloc_safe(d, N * sizeof(float *));
 }
 
-__inline__ ldouble** pldouble2_s(ldouble **d, int N)
+__inline__ ldouble** pldouble2_safe(ldouble **d, int N)
 {
-	return (ldouble **) realloc_s(d, N * sizeof(ldouble *));
+	return (ldouble **) realloc_safe(d, N * sizeof(ldouble *));
 }
 
 /* memory manipulation funcions given size */
@@ -326,18 +326,18 @@ __inline__ void* unset(void *d, int sz)
 
 __inline__ void* rm(void *d)
 {
-	free_s(d);
+	free_safe(d);
 	return nullptr;
 }
 
 __inline__ void* mk(int sz)
 {
-	return malloc_s(sz * sizeof(char));
+	return malloc_safe(sz * sizeof(char));
 }
 
 __inline__ void* rs(void *d, int sz)
 {
-	return realloc_s(d, sz * sizeof(char));
+	return realloc_safe(d, sz * sizeof(char));
 }
 
 __inline__ void* cp(void *lhs, const void *rhs, int sz)
@@ -440,7 +440,7 @@ __inline__ void* mk0(int sz)
 {
 	char *d;
 
-	d = (char *) malloc_s((sz + 1) * sizeof(char));
+	d = (char *) malloc_safe((sz + 1) * sizeof(char));
 	d[sz] = nullchr;
 	return d;
 }
@@ -449,7 +449,7 @@ __inline__ void* rs0(void *d, int sz)
 {
 	char *_d;
 
-	_d = (char *) realloc_s(d, (sz + 1) * sizeof(char));
+	_d = (char *) realloc_safe(d, (sz + 1) * sizeof(char));
 	_d[sz] = nullchr;
 	return _d;
 }

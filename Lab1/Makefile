@@ -1,19 +1,14 @@
 CXX = gcc
 LOG = logs.cmpl
+_CMPL = _cmpl.rm
 COMPILE_FLAGS = -std=c99 -pedantic -Wall -Wextra -g
+APPS = $(patsubst %.c,%,$(wildcard ./*.c))
 
-.PHONY: all clean
+all: $(APPS)
 
-all: duplicates execute ring
-
-duplicates: duplicates.c
-	$(CXX) -o duplicates duplicates.c $(COMPILE_FLAGS) 2>> duplicates.$(LOG)
-
-execute: execute.c
-	$(CXX) -o execute execute.c $(COMPILE_FLAGS) 2>> execute.$(LOG)
-
-ring: ring.c
-	$(CXX) -o ring ring.c $(COMPILE_FLAGS) 2>> ring.$(LOG)
+%: %.c
+	@date > $@.$(LOG)
+	@($(CXX) -o $@ $< $(COMPILE_FLAGS) 2>> $@.$(LOG) && echo $@": succeeded") || echo $@": failed"
 
 clean:
-	rm -f ./ring ./execute ./duplicates ./ring.$(LOG) ./execute.$(LOG) ./duplicates.$(LOG)
+	rm -f *.$(LOG) $(APPS)

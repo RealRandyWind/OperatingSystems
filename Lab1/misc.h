@@ -29,84 +29,84 @@ typedef long long llong;
 typedef long double ldouble;
 
 /*
- * Type <functionname>_s(...)
+ * Type <functionname>_safe(...)
  * safe wrapper functions for alternative handling error exit
  */
-void free_s(void *d);
-void* malloc_s(int sz);
-void* realloc_s(void *d, int sz);
+void free_safe(void *d);
+void* malloc_safe(int sz);
+void* realloc_safe(void *d, int sz);
 
-int fork_s();
-int pipe_s(int fd[2]);
-int stat_s(const char *path, struct stat *pstat);
-int open_s(const char *path, int flags);
-int close_s(int fd);
-int read_s(int fd, void* buff, int sz);
-int write_s(int fd, void* buff, int sz);
+int fork_safe();
+int pipe_safe(int fd[2]);
+int stat_safe(const char *path, struct stat *pstat);
+int open_safe(const char *path, int flags);
+int close_safe(int fd);
+int read_safe(int fd, void* buff, int sz);
+int write_safe(int fd, void* buff, int sz);
 
 /*
- * Type* <typename>_s(int N)
+ * Type* <typename>_safe(int N)
  * safely allocates a list of N types
  */
-uchar* uchar_s(int N);
-uint* uint_s(int N);
-ulong* ulong_s(int N);
-ullong* ullong_s(int N);
-llong* llong_s(int N);
-char* char_s(int N);
-int* int_s(int N);
-long* long_s(int N);
-double* double_s(int N);
-float* float_s(int N);
-ldouble* ldouble_s(int N);
+uchar* uchar_safe(int N);
+uint* uint_safe(int N);
+ulong* ulong_safe(int N);
+ullong* ullong_safe(int N);
+llong* llong_safe(int N);
+char* char_safe(int N);
+int* int_safe(int N);
+long* long_safe(int N);
+double* double_safe(int N);
+float* float_safe(int N);
+ldouble* ldouble_safe(int N);
 
 /*
- * Type* <typename>2_s(Type* d, int N)
+ * Type* <typename>2_safe(Type* d, int N)
  * safely reallocates a list of types to N types 
  */
-uchar* uchar2_s(uchar *d, int N);
-uint* uint2_s(uint *d, int N);
-ulong* ulong2_s(ulong *d, int N);
-ullong* ullong2_s(ullong *d, int N);
-llong* llong2_s(llong *d, int N);
-char* char2_s(char *d, int N);
-int* int2_s(int *d, int N);
-long* long2_s(long *d, int N);
-double* double2_s(double *d, int N);
-float* float2_s(float *d, int N);
-ldouble* ldouble2_s(ldouble *d, int N);
+uchar* uchar2_safe(uchar *d, int N);
+uint* uint2_safe(uint *d, int N);
+ulong* ulong2_safe(ulong *d, int N);
+ullong* ullong2_safe(ullong *d, int N);
+llong* llong2_safe(llong *d, int N);
+char* char2_safe(char *d, int N);
+int* int2_safe(int *d, int N);
+long* long2_safe(long *d, int N);
+double* double2_safe(double *d, int N);
+float* float2_safe(float *d, int N);
+ldouble* ldouble2_safe(ldouble *d, int N);
 
 /*
- * Type** p<typename>_s(int N)
+ * Type** p<typename>_safe(int N)
  * safely allocates a list of N pointer types
  */
-uchar** puchar_s(int N);
-uint** puint_s(int N);
-ulong** pulong_s(int N);
-ullong** pullong_s(int N);
-llong** pllong_s(int N);
-char** pchar_s(int N);
-int** pint_s(int N);
-long** plong_s(int N);
-double** pdouble_s(int N);
-float** pfloat_s(int N);
-ldouble** pldouble_s(int N);
+uchar** puchar_safe(int N);
+uint** puint_safe(int N);
+ulong** pulong_safe(int N);
+ullong** pullong_safe(int N);
+llong** pllong_safe(int N);
+char** pchar_safe(int N);
+int** pint_safe(int N);
+long** plong_safe(int N);
+double** pdouble_safe(int N);
+float** pfloat_safe(int N);
+ldouble** pldouble_safe(int N);
 
 /*
- * Type** p<typename>2_s(Type** d, int N)
+ * Type** p<typename>2_safe(Type** d, int N)
  * safely reallocates a list of pointer types to N pointer types 
  */
-uchar** puchar2_s(uchar **d, int N);
-uint** puint2_s(uint **d, int N);
-ulong** pulong2_s(ulong **d, int N);
-ullong** pullong2_s(ullong **d, int N);
-llong** pllong2_s(llong **d, int N);
-char** pchar2_s(char **d, int N);
-int** pint2_s(int **d, int N);
-long** plong2_s(long **d, int N);
-double** pdouble2_s(double **d, int N);
-float** pfloat2_s(float **d, int N);
-ldouble** pldouble2_s(ldouble **d, int N);
+uchar** puchar2_safe(uchar **d, int N);
+uint** puint2_safe(uint **d, int N);
+ulong** pulong2_safe(ulong **d, int N);
+ullong** pullong2_safe(ullong **d, int N);
+llong** pllong2_safe(llong **d, int N);
+char** pchar2_safe(char **d, int N);
+int** pint2_safe(int **d, int N);
+long** plong2_safe(long **d, int N);
+double** pdouble2_safe(double **d, int N);
+float** pfloat2_safe(float **d, int N);
+ldouble** pldouble2_safe(ldouble **d, int N);
 
 /*
  * memory manipulation funcions given known byte size,
